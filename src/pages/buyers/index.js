@@ -1,16 +1,36 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import styles from "./Buyers.module.css";
+import BuyerCard from "@/components/BuyerCard";
+
 
 export default function Buyers() {
-  const { query } = useRouter();
+  const { query, zipCode, price, estate } = useRouter();
+
+  const api = `api/find-buyers?zipCode=${zipCode}&price=${price}&estate=${estate}`;
+
+  console.log(zipCode, price, estate);
+  // API for get requests
+  //let fetchRes = fetch(api);
+    // fetchRes is the promise to resolve
+    // it by using.then() method
+    //fetchRes.then(res =>
+      //  res.json()).then(d => {
+      //      console.log(d.zipCode)
+      //  })
+
+
   return (
     <>
       <Head>
         <title>Find buyer | EDC</title>
       </Head>
       <div className="wrapper">
-        <h1 className={styles.headline}>Potential buyers</h1>
+        <h1 className={styles.headline}>Trying to fetch something</h1>
+
+
+      <BuyerCard />
+
         <p>
           On this page you get the <code>`query`</code> params like{" "}
           <code>`zipCode`</code>, and can use them to fetch a list of buyers

@@ -1,0 +1,33 @@
+.formality {
+    border: 2px solid red;
+    width: 30rem;
+    height: 30rem;
+    background-color: hotpink;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+
+.button{
+    border: 2px solid black;
+}
+
+.labelsy{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.labelsy2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.labelsy3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
