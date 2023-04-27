@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import styles from "./Buyers.module.css";
 import { useState, useEffect, useRef } from "react";
 import BuyerCard from "@/components/BuyerCard";
+import FinalSelection from "@/components/FinalSelection";
 
 
 export default function Buyers() {
@@ -75,8 +76,7 @@ export default function Buyers() {
     );
      }
 
-         // function that deletes a li, removes everything from the UL
-         // and rerenders 
+         // function that deletes a li and rerenders 
 
 
      function deleteLi(name){
@@ -112,8 +112,8 @@ export default function Buyers() {
       {/* HERE IS WHERE MY STORED CARDS SHOULD SHOW UP */}
 
       <div className={styles.storedCards}>
-        <ul ref={myUlRef}>
-
+        <ul className={styles.uly} ref={myUlRef}>
+          <h2>Your selection will appear here</h2>
           {buyerSelected.map((buyer) => (
             
           <li className={styles.lily} onClick={() => deleteLi(buyer.name)} key={buyer.key}>{buyer.name}</li> 
@@ -121,6 +121,7 @@ export default function Buyers() {
           ) 
           )}
         </ul>
+        <FinalSelection />
         </div>
       </div>
       
