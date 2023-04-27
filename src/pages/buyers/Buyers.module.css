@@ -19,3 +19,26 @@
 .content :last-child {
   margin-bottom: 0;
 }
+
+.importantWrapper{
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.keepingArticles{
+  border: 2px solid red;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.storedCards{
+  border: 2px solid red;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+

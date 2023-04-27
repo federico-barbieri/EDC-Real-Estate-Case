@@ -1,30 +1,29 @@
 import coolsies from "./FirstForm.module.css"
 import { useState } from "react";
 
-
 export default function FirstForm() {
-
 
   const [price, setPrice] = useState(null);
   const [zipCode, setZipCode] = useState(null);
   const [estate, setEstate] = useState(null);
-
 
   /* STORE PRICE */
   function storePrice(e){
     setPrice(e.target.value);
   }
 
-    /* STORE ZIPCODE */
+  /* STORE ZIPCODE */
+  function storeZip(e){
+     setZipCode(e.target.value);
 
-    function storeZip(e){
-      setZipCode(e.target.value);
     }
 
-      /* STORE TYPE OF ESTATE */
-      function storeEstate(e){
-        setEstate(e.target.value);
-        console.log(estate);
+  /* STORE TYPE OF ESTATE */
+  function storeEstate(e){
+      //  setEstate(e.target.value)
+      setEstate(e.target.id);
+      console.log(estate);
+        
       }
 
 
@@ -42,16 +41,16 @@ export default function FirstForm() {
       </label>
       <label className={coolsies.labelsy3}>
               <span>Estate Type</span>
-              <select onClick={storeEstate} id="estaty" name="estate">
-                <option id="1">Villa</option>
-                <option id="2">Villalejlighed</option>
-                <option id="3">Rækkehus</option>
-                <option id="4">Ejerlejlighed</option>
-                <option id="5">Fritidshus</option>
-                <option id="6">Fritidsgrund</option>
-                <option id="7">Helårsgrund</option>
-                <option id="8">Andelsbolig</option>
-                <option id="9">Landejendom</option>
+              <select id="estaty" name="estate">
+                <option onClick={storeEstate} id="1">Villa</option>
+                <option onClick={storeEstate} id="2">Villalejlighed</option>
+                <option onClick={storeEstate} id="3">Rækkehus</option>
+                <option onClick={storeEstate} id="4">Ejerlejlighed</option>
+                <option onClick={storeEstate} id="5">Fritidshus</option>
+                <option onClick={storeEstate} id="6">Fritidsgrund</option>
+                <option onClick={storeEstate} id="7">Helårsgrund</option>
+                <option onClick={storeEstate} id="8">Andelsbolig</option>
+                <option onClick={storeEstate} id="9">Landejendom</option>
 
               </select>
       </label>
