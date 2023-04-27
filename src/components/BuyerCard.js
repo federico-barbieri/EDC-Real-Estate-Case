@@ -2,11 +2,11 @@ import coolCard from "./BuyerCard.module.css"
 import { useState, useEffect } from "react"
 
 
-export default function BuyerCard({youClickedMe ,key, title, description, adults, child, minSize, maxPrice, takeOver }) {
+export default function BuyerCard({youClickedMe , id, title, description, adults, child, minSize, maxPrice, takeOver }) {
 
   
   return (
-    <form id={key} className={coolCard.article}>
+    <form id={id} className={coolCard.article}>
         <h2>{title}</h2>
         <p>Description: {description}</p>
         <p>Num of Adults: {adults}</p>
@@ -16,7 +16,7 @@ export default function BuyerCard({youClickedMe ,key, title, description, adults
         <p>Take over date is: {takeOver}</p>
         
               
-              <button id={key} className={coolCard.inputImproved} onClick={() => youClickedMe({title})} type="button" name="checkMe">
+              <button  className={coolCard.inputImproved} onClick={() => youClickedMe({id, title})} type="button" name="checkMe">
                 SELECT ME
                 </button>
       

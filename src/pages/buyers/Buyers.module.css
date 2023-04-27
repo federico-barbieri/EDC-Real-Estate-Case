@@ -42,3 +42,15 @@
   gap: 2rem;
 }
 
+.lily{
+  cursor: pointer;
+  border: 1px solid var(--dusty-aqua);
+  padding: 1rem;
+  list-style-type: none;
+}
+
+.lily:hover{
+  color: red;
+  text-decoration: line-through;
+}
+

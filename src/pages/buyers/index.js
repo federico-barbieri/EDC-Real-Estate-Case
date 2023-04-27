@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import styles from "./Buyers.module.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import BuyerCard from "@/components/BuyerCard";
 
 
@@ -10,6 +10,8 @@ export default function Buyers() {
 
    // use router to grab the stuff you filled up in the first form
    const { query } = useRouter();
+
+   const myUlRef = useRef(null);
 
 
    // use state to store potential buyers as objects
@@ -34,14 +36,15 @@ export default function Buyers() {
           console.log(err);
         })
 
-     }, [] )
+     }, [query.zipCode, query.estate, query.price] )
 
-     const users = potentialBuyers.map((data, id) => {
+     const users = potentialBuyers.map((data, key) => {
       return (
 
         <BuyerCard
-          key={id}
-          title={`Potential Buyer N ${id}`}
+          key={key}
+          id={key}
+          title={`Potential Buyer N ${key}`}
           description={data.description}
           adults={data.adults}
           child={data.children}
@@ -51,22 +54,44 @@ export default function Buyers() {
           youClickedMe={youClickedMe}
         />
       )
+
      })   
      
      // store cards selected
      
      const [buyerSelected, setBuyerSelected] = useState([])
 
-  function youClickedMe({title}){
+     // function that activates when you click on a card btn
+
+  function youClickedMe({id, title}){
+
+    // set BuyeSelected to the new item + whatever was before
 
     setBuyerSelected(
       [
-        ...buyerSelected,
-        title,
+        {key: id, name: title},
+        ...buyerSelected, 
       ]
     );
+     }
+
+         // function that deletes a li, removes everything from the UL
+         // and rerenders 
+
+
+     function deleteLi(name){
+      // remove card from state
+       let helloIAmNewState = buyerSelected.filter(el => el.name !== name); 
+
+      // set new state
+      setBuyerSelected(helloIAmNewState)
+
+      // remove everything from the UL
+     // myUlRef.innerHTML = "";
     
      }
+      
+     
      
 
   return (
@@ -87,21 +112,18 @@ export default function Buyers() {
       {/* HERE IS WHERE MY STORED CARDS SHOULD SHOW UP */}
 
       <div className={styles.storedCards}>
-      {buyerSelected}
+        <ul ref={myUlRef}>
 
+          {buyerSelected.map((buyer) => (
+            
+          <li className={styles.lily} onClick={() => deleteLi(buyer.name)} key={buyer.key}>{buyer.name}</li> 
+            
+          ) 
+          )}
+        </ul>
         </div>
       </div>
-        
       
-      
-    {/*    <div className={styles.content}>
-          <h2>Query params:</h2>
-          <pre>
-            <code>{JSON.stringify(query, null, 2)}</code>
-          </pre>
-        </div>
-
-      */}
 
       </div>
     

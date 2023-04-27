@@ -14,18 +14,9 @@ export default function Home() {
       </Head>
       <div className="wrapper">
 
-        <FirstForm />
+        <FirstForm className={styles.form} />
         
-        <div className={styles.content}>
-         
-          <form action="/buyers" method="GET" className={styles.form}>
-            <label>
-              <span className={styles.label}>Zip Code</span>
-              <input name="zipCode" required />
-            </label>
-            <button  className={styles.button}>Submit</button>
-          </form>
-        </div>
+        
       </div>
     </>
   );
