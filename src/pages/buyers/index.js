@@ -159,12 +159,13 @@ export default function Buyers() {
         <ul className={styles.uly} ref={myUlRef}>
 
           <h2>Your selection will appear here</h2>
+          
           {buyerSelected.map((buyer) => (
-            
           <li className={styles.lily} onClick={() => deleteLi(buyer.name)} key={buyer.key}>{buyer.name}</li> 
-            
           ) 
           )}
+
+         
 
         </ul>
       <label className={styles.label}>

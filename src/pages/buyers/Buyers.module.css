@@ -2,6 +2,8 @@
 
 .tryFetchingAgainBtn{
   cursor: pointer;
+  width: 30%;
+  height: 20%;
 }
 
 .headline {
