@@ -86,8 +86,8 @@ export function generateBuyerProfile({ price = 5000000, size = 100 } = {}) {
  */
 export function generateBuyerProfiles({
   zipCode,
-  price = undefined,
-  size = undefined,
+  price = 2000000,
+  size = 100,
   minResults = 1,
   maxResults = 20,
 } = {}) {

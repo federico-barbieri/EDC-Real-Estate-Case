@@ -5,136 +5,115 @@ import { useState, useEffect, useRef } from "react";
 import BuyerCard from "@/components/BuyerCard";
 import FinalSelection from "@/components/FinalSelection";
 
-
 export default function Buyers() {
+  // use router to grab the stuff you filled up in the first form
+  const { query } = useRouter();
 
+  // have a reference for the UL
 
-   // use router to grab the stuff you filled up in the first form
-   const { query } = useRouter();
+  const myUlRef = useRef(null);
 
-   // have a reference for the UL
+  // use state to store card buyers as objects
+  const [potentialBuyers, setPotentialBuyers] = useState([]);
 
-   const myUlRef = useRef(null);
+  useEffect(() => {
+    // api based on information coming from the router
+    const api = `api/find-buyers?zipCode=${query.zipCode}&price=${query.price}&estateType=${query.estate}`;
 
-   // have a reference for the TRY AGAIN BTN
-
-   const tryAgainBtnRef = useRef(null);
-
-
-   // use state to store card buyers as objects
-     const [potentialBuyers, setPotentialBuyers] = useState([]);
-
-     useEffect(() => {
-
-     // api based on information coming from the router
-      const api = `api/find-buyers?zipCode=${query.zipCode}&price=${query.price}&estateType=${query.estate}`;
-     
-      // API for get requests
-      let fetchRes = fetch(api);
-       // fetchRes is the promise to resolve it by using.then() method
-      fetchRes.then(res => res.json())
-      .then(buyers => {
-      setPotentialBuyers(buyers);
+    // API for get requests
+    let fetchRes = fetch(api)
+      .then((res) => res.json())
+      .then((buyers) => {
+        setPotentialBuyers(buyers);
         //storePotentialBuyer(buyers);
-        })
-        .catch(err=>{
-          console.log(err);
-        })
+      })
+      .catch((err) => {
+        console.error(err);
+      });
 
-        // this basically pays attention to these specific key words (queries)
+    // this basically pays attention to these specific key words (queries)
+  }, [query]);
 
-     }, [query.zipCode, query.estate, query.price, tryAgainBtnRef.current?.textContent] )
+  // for every potential buyer, create a Buyer Card, thanks
 
-     // for every potential buyer, create a Buyer Card, thanks
+  const users = potentialBuyers.map((data, key) => {
+    return (
+      <BuyerCard
+        key={key}
+        id={key}
+        title={`Potential Buyer N ${key}`}
+        description={data.description}
+        adults={data.adults}
+        child={data.children}
+        maxPrice={data.maxPrice}
+        minSize={data.minSize}
+        takeOver={data.takeoverDate}
+        
+      />
+    );
+  });
 
-     const users = potentialBuyers.map((data, key) => {
-      return (
+  // store the cards the user selected
 
-        <BuyerCard
-          key={key}
-          id={key}
-          title={`Potential Buyer N ${key}`}
-          description={data.description}
-          adults={data.adults}
-          child={data.children}
-          maxPrice={data.maxPrice}
-          minSize={data.minSize}
-          takeOver={data.takeoverDate}
-          youClickedMe={youClickedMe}
-        />
-      )
+  const [buyerSelected, setBuyerSelected] = useState([]);
 
-     })   
-     
-     // store the cards the user selected
-     
-     const [buyerSelected, setBuyerSelected] = useState([])
+  // when you click on one of the card btns..
+  // it receives the id of the buyer, the title(description) and the
+  // reference to the button so it can be disabled
 
-     // when you click on one of the card btns..
-     // it receives the id of the buyer, the title(description) and the 
-     // reference to the button so it can be disabled
-
-    function youClickedMe({id, title, myBtnRef}){
-
+  function youClickedMe({ id, title, myBtnRef }) {
     // disable the btn when you click it
     myBtnRef.current.disabled = true;
 
     // set BuyerSelected to the new chosen item + whatever was there before
 
-    setBuyerSelected(
-      [
-        {key: id, name: title, btnRef: myBtnRef},
-        ...buyerSelected, 
-      ]
-    );
-     }
+    setBuyerSelected([
+      { key: id, name: title, btnRef: myBtnRef },
+      ...buyerSelected,
+    ]);
+  }
 
-    
-     // you can delete a LI from the UL and the UL will rerender
-     // the function takes a name(description) and will
-     // filter through the state to see if there is an element with 
-     // that description. If it does, it removes it
+  // you can delete a LI from the UL and the UL will rerender
+  // the function takes a name(description) and will
+  // filter through the state to see if there is an element with
+  // that description. If it does, it removes it
 
-     function deleteLi(name){
+  function deleteLi(name) {
+    // remove card from state
+    let helloIAmNewState = buyerSelected.filter((el) => el.name !== name);
 
-      // remove card from state
-       let helloIAmNewState = buyerSelected.filter(el => el.name !== name); 
+    // set new state
+    setBuyerSelected(helloIAmNewState);
 
-      // set new state
-      setBuyerSelected(helloIAmNewState)
+    // remove everything from the UL
+    // myUlRef.innerHTML = "";
+  }
 
-      // remove everything from the UL
-     // myUlRef.innerHTML = "";
-    
-     }
+  // NOW COMES THE MIGHTY FORM
 
-     // NOW COMES THE MIGHTY FORM
+  const [name, setName] = useState(null);
+  const [mail, setMail] = useState(null);
+  const [phone, setPhone] = useState(null);
 
-     const [name, setName] = useState(null);
-    const [mail, setMail] = useState(null);
-    const [phone, setPhone] = useState(null);
-
-    /* STORE NAME */
-  function storeName(e){
+  /* STORE NAME */
+  function storeName(e) {
     setName(e.target.value);
   }
 
   /* STORE MAIL */
-  function storeMail(e){
-     setMail(e.target.value);
-    }
+  function storeMail(e) {
+    setMail(e.target.value);
+  }
 
-      /* STORE PHONE */
-  function storePhone(e){
+  /* STORE PHONE */
+  function storePhone(e) {
     setPhone(e.target.value);
   }
 
-  function fetchingBtnWasClicked(ref){
-    ref.current.textContent = "Trying my best to re-fetchhhh"
-
+  function fetchingBtnWasClicked(ref) {
+    ref.current.textContent = "Trying my best to re-fetchhhh";
   }
-      
-     
+
   return (
     <>
       <Head>
@@ -143,58 +122,59 @@ export default function Buyers() {
       <div className="wrapper">
         <h1 className={styles.headline}>Trying to fetch something</h1>
 
-      <div className={styles.importantWrapper}>
-      {/* HERE ARE THE CARDS OF THE POTENTIAL BUYERS */}
+        <div className={styles.importantWrapper}>
+          {/* HERE ARE THE CARDS OF THE POTENTIAL BUYERS */}
 
-        <div className={styles.keepingArticles}>
-        <button onClick={() => fetchingBtnWasClicked(tryAgainBtnRef)} ref={tryAgainBtnRef} className={styles.tryFetchingAgainBtn}>TRY FETCHING AGAIN</button>
-          {users}
-          {potentialBuyers.length === 0 ? <p>No buyers for you</p> : null}
-        </div>
+          <div className={styles.keepingArticles}>
+            {users}
+            {potentialBuyers.length === 0 ? <p>No buyers for you</p> : null}
+          </div>
 
-      {/* HERE IS WHERE MY FORM IS */}
+          {/* HERE IS WHERE MY FORM IS */}
 
-      <div className={styles.storedCards}>
-        <form garfield="sup" className={styles.finalSelectionForm} action="/thanks" method="GET" >
-        <ul className={styles.uly} ref={myUlRef}>
+          <div className={styles.storedCards}>
+            <form
+              garfield="sup"
+              className={styles.finalSelectionForm}
+              action="/thanks"
+              method="GET"
+            >
+              <ul className={styles.uly} ref={myUlRef}>
+                <h2>Your selection will appear here</h2>
 
-          <h2>Your selection will appear here</h2>
-          
-          {buyerSelected.map((buyer) => (
-          <li className={styles.lily} onClick={() => deleteLi(buyer.name)} key={buyer.key}>{buyer.name}</li> 
-          ) 
-          )}
+                {buyerSelected.map((buyer) => (
+                  <li
+                    className={styles.lily}
+                    onClick={() => deleteLi(buyer.name)}
+                    key={buyer.key}
+                  >
+                    {buyer.name}
+                  </li>
+                ))}
+              </ul>
+              <label className={styles.label}>
+                <span>NAME</span>
+                <input onChange={storeName} id="namy" name="name" required />
+              </label>
+              <label className={styles.label}>
+                <span>EMAIL</span>
+                <input onChange={storeMail} id="emaily" name="email" required />
+              </label>
+              <label className={styles.label}>
+                <span>PHONE</span>
+                <input
+                  onChange={storePhone}
+                  id="phoney"
+                  name="phone"
+                  required
+                />
+              </label>
 
-         
-
-        </ul>
-      <label className={styles.label}>
-              <span>NAME</span>
-              <input onChange={storeName} id="namy" name="name" required />
-      </label>
-      <label className={styles.label}>
-              <span>EMAIL</span>
-              <input onChange={storeMail} id="emaily" name="email" required />
-      </label>
-      <label className={styles.label}>
-              <span>PHONE</span>
-              <input onChange={storePhone} id="phoney" name="phone" required />
-      </label>
-      
-      <button    className={styles.btnImproved}>Submit</button>
-
-    </form>
-        
-          
-      
+              <button className={styles.btnImproved}>Submit</button>
+            </form>
+          </div>
         </div>
       </div>
-      
-
-      </div>
-    
     </>
-  
   );
 }
-
