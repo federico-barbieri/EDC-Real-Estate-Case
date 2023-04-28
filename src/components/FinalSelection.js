@@ -3,7 +3,7 @@ import selection from "./FinalSelection.module.css";
 import { useState } from "react";
 
 
-function FinalSelection({title}) {
+function FinalSelection({title, ref}) {
 
    
 
@@ -30,6 +30,9 @@ function FinalSelection({title}) {
     <>
     <form className={selection.finalSelectionForm} action="/thanks" method="GET" >
       <h2>{title}</h2>
+      <ul ref={ref}>
+
+      </ul>
       <label className={selection.label}>
               <span>NAME</span>
               <input onChange={storeName} id="namy" name="name" required />

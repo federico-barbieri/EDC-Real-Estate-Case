@@ -12,10 +12,16 @@ export default function Buyers() {
    // use router to grab the stuff you filled up in the first form
    const { query } = useRouter();
 
+   // have a reference for the UL
+
    const myUlRef = useRef(null);
 
+   // have a reference for the TRY AGAIN BTN
 
-   // use state to store potential buyers as objects
+   const tryAgainBtnRef = useRef(null);
+
+
+   // use state to store card buyers as objects
      const [potentialBuyers, setPotentialBuyers] = useState([]);
 
      useEffect(() => {
@@ -23,8 +29,6 @@ export default function Buyers() {
      // api based on information coming from the router
    const api = `api/find-buyers?zipCode=${query.zipCode}&price=${query.price}&estateType=${query.estate}`;
      
-
-
       // API for get requests
       let fetchRes = fetch(api);
        // fetchRes is the promise to resolve it by using.then() method
@@ -34,10 +38,15 @@ export default function Buyers() {
         //storePotentialBuyer(buyers);
         })
         .catch(err=>{
+          tryAgainBtnRef.current.display = "block";
           console.log(err);
         })
 
+        // this basically pays attention to these specific key words (queries)
+
      }, [query.zipCode, query.estate, query.price] )
+
+     // for every potential buyer, create a Buyer Card, thanks
 
      const users = potentialBuyers.map((data, key) => {
       return (
@@ -58,18 +67,20 @@ export default function Buyers() {
 
      })   
      
-     // store cards selected
+     // store the cards the user selected
      
      const [buyerSelected, setBuyerSelected] = useState([])
 
-     // function that activates when you click on a card btn
+     // when you click on one of the card btns..
+     // it receives the id of the buyer, the title(description) and the 
+     // reference to the button so it can be disabled
 
-  function youClickedMe({id, title, myBtnRef}){
+    function youClickedMe({id, title, myBtnRef}){
 
     // disable the btn when you click it
     myBtnRef.current.disabled = true;
 
-    // set BuyeSelected to the new item + whatever was before
+    // set BuyerSelected to the new chosen item + whatever was there before
 
     setBuyerSelected(
       [
@@ -80,7 +91,10 @@ export default function Buyers() {
      }
 
     
-     // function that deletes a li and rerenders 
+     // you can delete a LI from the UL and the UL will rerender
+     // the function takes a name(description) and will
+     // filter through the state to see if there is an element with 
+     // that description. If it does, it removes it
 
      function deleteLi(name){
 
@@ -94,10 +108,29 @@ export default function Buyers() {
      // myUlRef.innerHTML = "";
     
      }
+
+     // NOW COMES THE MIGHTY FORM
+
+     const [name, setName] = useState(null);
+    const [mail, setMail] = useState(null);
+    const [phone, setPhone] = useState(null);
+
+    /* STORE NAME */
+  function storeName(e){
+    setName(e.target.value);
+  }
+
+  /* STORE MAIL */
+  function storeMail(e){
+     setMail(e.target.value);
+    }
+
+      /* STORE PHONE */
+  function storePhone(e){
+    setPhone(e.target.value);
+  }
       
      
-     
-
   return (
     <>
       <Head>
@@ -110,13 +143,16 @@ export default function Buyers() {
       {/* HERE ARE THE CARDS OF THE POTENTIAL BUYERS */}
 
         <div className={styles.keepingArticles}>
+          <button ref={tryAgainBtnRef} className={styles.tryFetchingAgainBtn}>TRY FETCHING AGAIN</button>
           {users}
         </div>
 
-      {/* HERE IS WHERE MY STORED CARDS SHOULD SHOW UP */}
+      {/* HERE IS WHERE MY FORM IS */}
 
       <div className={styles.storedCards}>
+        <form className={styles.finalSelectionForm} action="/thanks" method="GET" >
         <ul className={styles.uly} ref={myUlRef}>
+
           <h2>Your selection will appear here</h2>
           {buyerSelected.map((buyer) => (
             
@@ -124,8 +160,27 @@ export default function Buyers() {
             
           ) 
           )}
+
         </ul>
-        <FinalSelection title="Your.Info.Now" />
+      <label className={styles.label}>
+              <span>NAME</span>
+              <input onChange={storeName} id="namy" name="name" required />
+      </label>
+      <label className={styles.label}>
+              <span>EMAIL</span>
+              <input onChange={storeMail} id="emaily" name="email" required />
+      </label>
+      <label className={styles.label}>
+              <span>PHONE</span>
+              <input onChange={storePhone} id="phoney" name="phone" required />
+      </label>
+      
+      <button    className={styles.btnImproved}>Submit</button>
+
+    </form>
+        
+          
+      
         </div>
       </div>
       
