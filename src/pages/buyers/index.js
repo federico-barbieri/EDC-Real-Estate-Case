@@ -27,7 +27,7 @@ export default function Buyers() {
      useEffect(() => {
 
      // api based on information coming from the router
-   const api = `api/find-buyers?zipCode=${query.zipCode}&price=${query.price}&estateType=${query.estate}`;
+      const api = `api/find-buyers?zipCode=${query.zipCode}&price=${query.price}&estateType=${query.estate}`;
      
       // API for get requests
       let fetchRes = fetch(api);
@@ -38,13 +38,12 @@ export default function Buyers() {
         //storePotentialBuyer(buyers);
         })
         .catch(err=>{
-          tryAgainBtnRef.current.display = "block";
           console.log(err);
         })
 
         // this basically pays attention to these specific key words (queries)
 
-     }, [query.zipCode, query.estate, query.price, tryAgainBtnRef] )
+     }, [query.zipCode, query.estate, query.price, tryAgainBtnRef.current?.textContent] )
 
      // for every potential buyer, create a Buyer Card, thanks
 
@@ -131,7 +130,7 @@ export default function Buyers() {
   }
 
   function fetchingBtnWasClicked(ref){
-    ref.current.textContent = "Trying my best to re-fetch"
+    ref.current.textContent = "Trying my best to re-fetchhhh"
 
   }
       
@@ -150,12 +149,13 @@ export default function Buyers() {
         <div className={styles.keepingArticles}>
         <button onClick={() => fetchingBtnWasClicked(tryAgainBtnRef)} ref={tryAgainBtnRef} className={styles.tryFetchingAgainBtn}>TRY FETCHING AGAIN</button>
           {users}
+          {potentialBuyers.length === 0 ? <p>No buyers for you</p> : null}
         </div>
 
       {/* HERE IS WHERE MY FORM IS */}
 
       <div className={styles.storedCards}>
-        <form className={styles.finalSelectionForm} action="/thanks" method="GET" >
+        <form garfield="sup" className={styles.finalSelectionForm} action="/thanks" method="GET" >
         <ul className={styles.uly} ref={myUlRef}>
 
           <h2>Your selection will appear here</h2>

@@ -8,6 +8,7 @@ function ThankYou() {
 
   console.log({query})
 
+
   return (
     <>
     <div className={thanks.thankYou}>
@@ -17,7 +18,7 @@ function ThankYou() {
       <li>{query.name}</li>
       <li>{query.phone}</li>
       <li>{query.email}</li>
-      <li>{query.key}</li>
+      <li>{}</li>
 
 
 

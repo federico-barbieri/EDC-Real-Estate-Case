@@ -88,7 +88,7 @@ export function generateBuyerProfiles({
   zipCode,
   price = undefined,
   size = undefined,
-  minResults = 0,
+  minResults = 1,
   maxResults = 20,
 } = {}) {
   if (!zipCode) return [];
