@@ -44,7 +44,7 @@ export default function Buyers() {
 
         // this basically pays attention to these specific key words (queries)
 
-     }, [query.zipCode, query.estate, query.price] )
+     }, [query.zipCode, query.estate, query.price, tryAgainBtnRef] )
 
      // for every potential buyer, create a Buyer Card, thanks
 
@@ -129,6 +129,11 @@ export default function Buyers() {
   function storePhone(e){
     setPhone(e.target.value);
   }
+
+  function fetchingBtnWasClicked(ref){
+    ref.current.textContent = "Trying my best to re-fetch"
+
+  }
       
      
   return (
@@ -143,7 +148,7 @@ export default function Buyers() {
       {/* HERE ARE THE CARDS OF THE POTENTIAL BUYERS */}
 
         <div className={styles.keepingArticles}>
-          <button ref={tryAgainBtnRef} className={styles.tryFetchingAgainBtn}>TRY FETCHING AGAIN</button>
+        <button onClick={() => fetchingBtnWasClicked(tryAgainBtnRef)} ref={tryAgainBtnRef} className={styles.tryFetchingAgainBtn}>TRY FETCHING AGAIN</button>
           {users}
         </div>
 

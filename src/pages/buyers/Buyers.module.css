@@ -1,7 +1,7 @@
 /* fetching btn */
 
 .tryFetchingAgainBtn{
-  display: none;
+  cursor: pointer;
 }
 
 .headline {
