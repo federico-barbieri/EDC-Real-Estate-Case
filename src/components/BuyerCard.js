@@ -1,8 +1,10 @@
 import coolCard from "./BuyerCard.module.css"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 
 
 export default function BuyerCard({youClickedMe , id, title, description, adults, child, minSize, maxPrice, takeOver }) {
+
+  const myBtnRef = useRef(null);
 
   
   return (
@@ -16,7 +18,7 @@ export default function BuyerCard({youClickedMe , id, title, description, adults
         <p>Take over date is: {takeOver}</p>
         
               
-              <button  className={coolCard.inputImproved} onClick={() => youClickedMe({id, title})} type="button" name="checkMe">
+              <button ref={myBtnRef}  className={coolCard.inputImproved} onClick={() => youClickedMe({id, title, myBtnRef})} type="button" name="checkMe">
                 SELECT ME
                 </button>
       

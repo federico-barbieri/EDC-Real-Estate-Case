@@ -1,0 +1,30 @@
+.thankYou{
+    width: 80vw;
+    height: 50vh;
+    margin: 5rem auto;
+    background-color: var(--dusty-blue-lighter);
+    filter: drop-shadow(4px 4px 4px var(--blue) );
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+
+.btn{
+    width: 30%;
+    height: 3rem;
+    padding: 1rem;
+    margin: 3rem auto 0 auto;
+    border-radius: 5px;
+    cursor: pointer;
+}
+    
+.btn:hover{
+    transition: 0.5s all ease-in;
+    color: white;
+    background-color: var(--dusty-blue-lighter);
+    border: 2px solid white;
+}

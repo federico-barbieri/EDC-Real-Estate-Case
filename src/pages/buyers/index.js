@@ -64,22 +64,26 @@ export default function Buyers() {
 
      // function that activates when you click on a card btn
 
-  function youClickedMe({id, title}){
+  function youClickedMe({id, title, myBtnRef}){
+
+    // disable the btn when you click it
+    myBtnRef.current.disabled = true;
 
     // set BuyeSelected to the new item + whatever was before
 
     setBuyerSelected(
       [
-        {key: id, name: title},
+        {key: id, name: title, btnRef: myBtnRef},
         ...buyerSelected, 
       ]
     );
      }
 
-         // function that deletes a li and rerenders 
-
+    
+     // function that deletes a li and rerenders 
 
      function deleteLi(name){
+
       // remove card from state
        let helloIAmNewState = buyerSelected.filter(el => el.name !== name); 
 
@@ -121,7 +125,7 @@ export default function Buyers() {
           ) 
           )}
         </ul>
-        <FinalSelection />
+        <FinalSelection title="Your.Info.Now" />
         </div>
       </div>
       

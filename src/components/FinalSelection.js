@@ -3,7 +3,9 @@ import selection from "./FinalSelection.module.css";
 import { useState } from "react";
 
 
-function FinalSelection() {
+function FinalSelection({title}) {
+
+   
 
     const [name, setName] = useState(null);
     const [mail, setMail] = useState(null);
@@ -27,7 +29,7 @@ function FinalSelection() {
   return (
     <>
     <form className={selection.finalSelectionForm} action="/thanks" method="GET" >
-      <h2>Send us your data nowww</h2>
+      <h2>{title}</h2>
       <label className={selection.label}>
               <span>NAME</span>
               <input onChange={storeName} id="namy" name="name" required />
@@ -41,7 +43,7 @@ function FinalSelection() {
               <input onChange={storePhone} id="phoney" name="phone" required />
       </label>
       
-      <button   className={selection.btnImproved}>Submit</button>
+      <button    className={selection.btnImproved}>Submit</button>
 
     </form>
     </>
