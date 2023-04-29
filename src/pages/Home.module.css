@@ -18,10 +18,11 @@
   padding: 1rem;
   background-color: var(--white);
   line-height: 24px;
+  margin: auto;
   margin-bottom: 1rem;
   /* background-color: var(--dusty-aqua-light);
   border: 1px solid var(--dusty-aqua); */
-  /* max-width: 70vw;  */
+  width: 55rem;
 }
 .content :first-child {
   margin-top: 0;
