@@ -1,8 +1,7 @@
-/*h1 headline*/
+/*h1 headline / needs to be responsive*/
 
 .headline {
   font-size: 3.052rem;
-  /* 3.375rem; */
   font-family: var(--font-sans);
   text-align: center;
   font-weight: 400;
@@ -14,23 +13,26 @@
   font-family: var(--font-serif);
 }
 
+/* p under header*/
+
 .content {
   padding: 1rem;
   background-color: var(--white);
   line-height: 24px;
   margin: auto;
   margin-bottom: 1rem;
-  /* background-color: var(--dusty-aqua-light);
-  border: 1px solid var(--dusty-aqua); */
   width: 55rem;
 }
+
 .content :first-child {
   margin-top: 0;
 }
+
 .content :last-child {
   margin-bottom: 0;
 }
 
+/*Form no1*/
 .form {
   background-color: var(--dusty-blue-lighter);
   padding: 1rem;
