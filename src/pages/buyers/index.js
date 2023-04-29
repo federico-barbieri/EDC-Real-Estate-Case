@@ -141,6 +141,27 @@ export default function Buyers() {
   // grab form 
 
   const almightyForm = useRef(null);
+
+  function submitted(e){
+    const payload = {
+      name: "fede",
+      email: "myemail",
+      phone: 3,
+      interest: "",
+    }
+
+    fetch("api/addingPost", {
+      method: "POST",
+      headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+    }).then(res => res.json())
+    .then(data => console.log("this is my data " + data))
+
+
+
+  }
       
      
   return (
@@ -162,7 +183,7 @@ export default function Buyers() {
       {/* HERE IS WHERE MY FORM IS */}
 
       <div className={styles.storedCards}>
-        <form ref={almightyForm} className={styles.finalSelectionForm} action="/thanks" method="GET" >
+        <form ref={almightyForm} className={styles.finalSelectionForm} action="/thanks" method="GET" onSubmit={submitted} >
         <ul className={styles.uly} ref={myUlRef}>
 
           <h2>Your selection will appear here</h2>
