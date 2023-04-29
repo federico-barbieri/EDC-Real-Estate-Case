@@ -36,13 +36,17 @@
   font-size: 1rem;
 }
 
-/**move this to global and rewrite it here*/
+.formality input::placeholder {
+  color: var(--dark-grey);
+  font-size: 1rem;
+}
+
 .formality input:focus {
   outline: var(--dusty-blue) solid 1px;
 }
 
 .formality select {
-  padding: 0.5rem;
+  padding: 1rem 1.5rem;
   width: 350px;
   font-size: 1.125rem;
   outline: var(--dusty-blue-lighter) solid 1px;
@@ -53,10 +57,8 @@
   outline: var(--dusty-blue) solid 1px;
 }
 
-.formality options {
-  padding: 2rem 1.5rem;
-  padding: 10px; /* Add 10 pixels of padding to the dropdown */
-  font-family: Arial, sans-serif;
+.formality select options {
+  padding: 1rem 1.5rem;
 }
 
 /*---------------------PREVIOUSLY on Labels that got removed

@@ -30,23 +30,25 @@ export default function FirstForm() {
         <label className={coolsies.label}>
           <span>Zip Code</span>
           <input
-            className="input"
             onChange={storeZip}
             id="zippy"
             name="zipCode"
+            placeholder="Your area zip code"
             required
           />
         </label>
+
         <label className={coolsies.label}>
           <span>Price</span>
           <input
-            className="input"
             onChange={storePrice}
             id="pricy"
             name="price"
+            placeholder="Estate price in DKK"
             required
           />
         </label>
+
         <label className={coolsies.label}>
           <span>Estate Type</span>
           <select id="estaty" name="estate">

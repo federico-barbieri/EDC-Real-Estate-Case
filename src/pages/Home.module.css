@@ -48,8 +48,6 @@
   padding: 0.5rem;
 }
 
-/*This was moved from first form */
-
 .button {
   padding: 0.5rem;
   background: var(--blue);
@@ -58,7 +56,3 @@
 .button:hover {
   background: var(--hover);
 }
-
-/*adjust button styling*/
-/*label styling*/
-/*dropdown styling*/
