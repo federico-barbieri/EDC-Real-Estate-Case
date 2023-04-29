@@ -29,11 +29,23 @@ export default function FirstForm() {
         <h2>Form that WILL work</h2>
         <label className={coolsies.label}>
           <span>Zip Code</span>
-          <input onChange={storeZip} id="zippy" name="zipCode" required />
+          <input
+            className="input"
+            onChange={storeZip}
+            id="zippy"
+            name="zipCode"
+            required
+          />
         </label>
         <label className={coolsies.label}>
           <span>Price</span>
-          <input onChange={storePrice} id="pricy" name="price" required />
+          <input
+            className="input"
+            onChange={storePrice}
+            id="pricy"
+            name="price"
+            required
+          />
         </label>
         <label className={coolsies.label}>
           <span>Estate Type</span>
