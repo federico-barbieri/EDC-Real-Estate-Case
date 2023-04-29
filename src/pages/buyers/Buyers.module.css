@@ -128,3 +128,10 @@
   border: 2px solid white;
 }
 
+/* important text area */
+
+.importantTextArea{
+  background-color: var(--dusty-blue-lighter);
+  color: transparent;
+}
+

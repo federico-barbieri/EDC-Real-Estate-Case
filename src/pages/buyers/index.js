@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import styles from "./Buyers.module.css";
 import { useState, useEffect, useRef } from "react";
 import BuyerCard from "@/components/BuyerCard";
-import FinalSelection from "@/components/FinalSelection";
 
 
 export default function Buyers() {
@@ -70,11 +69,16 @@ export default function Buyers() {
      
      const [buyerSelected, setBuyerSelected] = useState([])
 
+     
+
+     
+
      // when you click on one of the card btns..
      // it receives the id of the buyer, the title(description) and the 
      // reference to the button so it can be disabled
 
     function youClickedMe({id, title, myBtnRef}){
+
 
     // disable the btn when you click it
     myBtnRef.current.disabled = true;
@@ -133,6 +137,10 @@ export default function Buyers() {
     ref.current.textContent = "Trying my best to re-fetchhhh"
 
   }
+
+  // grab form 
+
+  const almightyForm = useRef(null);
       
      
   return (
@@ -147,7 +155,6 @@ export default function Buyers() {
       {/* HERE ARE THE CARDS OF THE POTENTIAL BUYERS */}
 
         <div className={styles.keepingArticles}>
-        <button onClick={() => fetchingBtnWasClicked(tryAgainBtnRef)} ref={tryAgainBtnRef} className={styles.tryFetchingAgainBtn}>TRY FETCHING AGAIN</button>
           {users}
           {potentialBuyers.length === 0 ? <p>No buyers for you</p> : null}
         </div>
@@ -155,7 +162,7 @@ export default function Buyers() {
       {/* HERE IS WHERE MY FORM IS */}
 
       <div className={styles.storedCards}>
-        <form garfield="sup" className={styles.finalSelectionForm} action="/thanks" method="GET" >
+        <form ref={almightyForm} className={styles.finalSelectionForm} action="/thanks" method="GET" >
         <ul className={styles.uly} ref={myUlRef}>
 
           <h2>Your selection will appear here</h2>
@@ -164,10 +171,16 @@ export default function Buyers() {
           <li className={styles.lily} onClick={() => deleteLi(buyer.name)} key={buyer.key}>{buyer.name}</li> 
           ) 
           )}
-
-         
-
         </ul>
+
+        <textarea className={styles.importantTextArea}
+          
+          name="postContent"
+          defaultValue={buyerSelected.map((buyer) => buyer.key)}
+          rows={4}
+          cols={40}
+          />
+       
       <label className={styles.label}>
               <span>NAME</span>
               <input onChange={storeName} id="namy" name="name" required />

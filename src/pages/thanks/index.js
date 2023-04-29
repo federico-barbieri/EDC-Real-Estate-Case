@@ -2,11 +2,15 @@ import React from 'react';
 import thanks from "./index.module.css"
 import { useRouter } from "next/router";
 
+
 function ThankYou() {
 
   const {query} = useRouter();
 
-  console.log({query})
+
+
+  console.log(query);
+
 
 
   return (
@@ -15,10 +19,10 @@ function ThankYou() {
     <h2>Thank you!</h2>
     <p>We have received your information:</p>
     <ul>
-      <li>{query.name}</li>
-      <li>{query.phone}</li>
-      <li>{query.email}</li>
-      <li>{}</li>
+      <li>User name: <strong>{query.name}</strong></li>
+      <li>User phone: <strong>{query.phone}</strong></li>
+      <li>User email: <strong>{query.email}</strong></li>
+      <li>Interested in these buyers: <strong>{query.postContent}</strong></li>
 
 
 
