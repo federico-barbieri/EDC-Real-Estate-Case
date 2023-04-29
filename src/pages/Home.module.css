@@ -1,17 +1,27 @@
+/*h1 headline*/
+
 .headline {
-  font-size: 5rem;
-  font-family: var(--font-serif);
+  font-size: 3.052rem;
+  /* 3.375rem; */
+  font-family: var(--font-sans);
   text-align: center;
   font-weight: 400;
   margin-bottom: 0.5rem;
   line-height: 1.2;
 }
 
+.headline span {
+  font-family: var(--font-serif);
+}
+
 .content {
   padding: 1rem;
-  background-color: var(--dusty-aqua-light);
-  border: 1px solid var(--dusty-aqua);
-  margin-bottom: 1rem
+  background-color: var(--white);
+  line-height: 24px;
+  margin-bottom: 1rem;
+  /* background-color: var(--dusty-aqua-light);
+  border: 1px solid var(--dusty-aqua); */
+  /* max-width: 70vw;  */
 }
 .content :first-child {
   margin-top: 0;
@@ -43,3 +53,7 @@
 .button:hover {
   background: var(--hover);
 }
+
+/*adjust button styling*/
+/*label styling*/
+/*dropdown styling*/
