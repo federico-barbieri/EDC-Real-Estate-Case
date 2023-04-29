@@ -1,44 +1,106 @@
 .formality {
-    width: 50rem;
-    height: 40rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    margin: 0 auto;
-    background-color: var(--dusty-blue-lighter);
-    padding: 1rem;
-    border-radius: 10px;
-    filter: drop-shadow(4px 4px 4px var(--blue) );
+  width: 50rem;
+  height: auto;
+  /* height: 40rem; */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
+  background-color: var(--dusty-aqua-light);
+  padding: 1rem;
+  border-radius: 10px;
+  filter: drop-shadow(4px 4px 4px var(--dusty-blue-light));
 }
-  
-  .label {
-    font-weight: 700;
-    display: block;
-    margin-right: 1rem;
-    font-size: 1.5rem;
-  }
-  
-  .formality input{
-    padding: 0.5rem;
-    margin-left: 1rem;
-    font-size: 1.5rem;
-  }
 
-  .formality select{
-    padding: 0.5rem;
-    margin-left: 1rem;
-    font-size: 1.5rem;
-  }
+/*Zip code, price, estate type*/
+.label {
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  /* font-size: 1.2rem; */
+  font-size: 1rem;
+}
 
-  .button {
-    padding: 1rem 0.5rem;
-    background: var(--blue);
-    color: var(--white);
-    width: 20%;
-    font-size: 1.5rem;
-    border-radius: 5px;
-  }
-  .button:hover {
-    background: var(--hover);
-  }
+.label span {
+  padding-bottom: 0.45rem;
+}
+
+.formality input {
+  padding: 1rem 1.5rem;
+  width: 350px;
+  font-size: 1.125rem;
+  outline: var(--dusty-blue-lighter) solid 1px;
+  color: var(--dark-blue);
+  font-size: 1rem;
+}
+
+.formality input::placeholder {
+  color: var(--dark-grey);
+  font-size: 1rem;
+}
+
+.formality input:focus {
+  outline: var(--dusty-blue) solid 1px;
+}
+
+.formality select {
+  padding: 1rem 1.5rem;
+  width: 350px;
+  font-size: 1.125rem;
+  outline: var(--dusty-blue-lighter) solid 1px;
+  color: var(--dark-blue);
+}
+
+.formality select:focus {
+  outline: var(--dusty-blue) solid 1px;
+}
+
+.formality select options {
+  padding: 1rem 1.5rem;
+}
+
+/*---------------------PREVIOUSLY on Labels that got removed
+.label {
+  font-weight: 700;
+  display: block;
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  font-size: 1.5rem; //
+}*/
+
+/* .formality input {
+  padding: 0.5rem;
+  margin-left: 1rem;
+  font-size: 1.5rem;
+} 
+
+.formality select {
+  padding: 0.5rem;
+  margin-left: 1rem;
+  font-size: 1.125rem;
+  font-size: 1.5rem;
+}
+
+*/
+
+.button {
+  padding: 1rem 0.5rem;
+  background: var(--blue);
+  color: var(--white);
+  width: 20vw;
+  font-size: 1rem;
+  border-radius: 19px;
+  margin-top: 2rem;
+  cursor: pointer;
+  /* width: 20%; */
+  /* font-size: 1.5rem; */
+  /* border-radius: 5px; */
+}
+
+/*added button transition */
+.button:hover {
+  transition: 0.3s;
+  background: var(--hover);
+}

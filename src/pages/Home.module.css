@@ -1,25 +1,38 @@
+/*h1 headline / needs to be responsive*/
+
 .headline {
-  font-size: 5rem;
-  font-family: var(--font-serif);
+  font-size: 3.052rem;
+  font-family: var(--font-sans);
   text-align: center;
   font-weight: 400;
   margin-bottom: 0.5rem;
   line-height: 1.2;
 }
 
+.headline span {
+  font-family: var(--font-serif);
+}
+
+/* p under header*/
+
 .content {
   padding: 1rem;
-  background-color: var(--dusty-aqua-light);
-  border: 1px solid var(--dusty-aqua);
-  margin-bottom: 1rem
+  background-color: var(--white);
+  line-height: 24px;
+  margin: auto;
+  margin-bottom: 1rem;
+  width: 55rem;
 }
+
 .content :first-child {
   margin-top: 0;
 }
+
 .content :last-child {
   margin-bottom: 0;
 }
 
+/*Form no1*/
 .form {
   background-color: var(--dusty-blue-lighter);
   padding: 1rem;
