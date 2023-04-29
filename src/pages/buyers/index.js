@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import styles from "./Buyers.module.css";
 import { useState, useEffect, useRef } from "react";
 import BuyerCard from "@/components/BuyerCard";
+import supabase from "@/utils/supabaseClient";
 
 
 export default function Buyers() {
@@ -117,6 +118,7 @@ export default function Buyers() {
      const [name, setName] = useState(null);
     const [mail, setMail] = useState(null);
     const [phone, setPhone] = useState(null);
+    const [textArea, setTextArea] = useState(null);
 
     /* STORE NAME */
   function storeName(e){
@@ -133,6 +135,13 @@ export default function Buyers() {
     setPhone(e.target.value);
   }
 
+     /* STORE TEXT AREA */
+     function storeTextArea(e){
+      setTextArea(e.target.defaultValue);
+      console.log(textArea);
+    }
+
+
   function fetchingBtnWasClicked(ref){
     ref.current.textContent = "Trying my best to re-fetchhhh"
 
@@ -142,26 +151,47 @@ export default function Buyers() {
 
   const almightyForm = useRef(null);
 
-  function submitted(e){
-    const payload = {
-      name: "fede",
-      email: "myemail",
-      phone: 3,
-      interest: "",
-    }
+//  function submitted(e){
+//    e.preventDefault();
+//    const payload = {
+//      name: name,
+//      email: mail,
+//      phone: phone,
+//      interest: "messi",
+//    }
 
-    fetch("api/addingPost", {
-      method: "POST",
-      headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payload),
-    }).then(res => res.json())
-    .then(data => console.log("this is my data " + data))
+//    fetch("api/addingPost", {
+//      method: "POST",
+//      headers: {
+//      "Content-Type": "application/json",
+//    },
+//    body: JSON.stringify(payload),
+//    }).then(res => res.json())
+//    .then(data => console.log(data))
+//
+//  }
+
+  // supabase realm
+
+  const textAreaRef = useRef(null);
 
 
+  const submitted = async () => {
+    const {data, error} = await supabase.from("houses").insert({
+      name: name,
+      email: mail,
+      phone: phone,
+      interest: textAreaRef.current.defaultValue,
+    });
+    if (error) throw error;
+    console.log(phone);
+    console.log(name);
+    console.log(mail);
+    console.log(textAreaRef.current.defaultValue);
 
   }
+
+  
       
      
   return (
@@ -183,7 +213,7 @@ export default function Buyers() {
       {/* HERE IS WHERE MY FORM IS */}
 
       <div className={styles.storedCards}>
-        <form ref={almightyForm} className={styles.finalSelectionForm} action="/thanks" method="GET" onSubmit={submitted} >
+        <form ref={almightyForm} className={styles.finalSelectionForm} action="/thanks" onSubmit={submitted} >
         <ul className={styles.uly} ref={myUlRef}>
 
           <h2>Your selection will appear here</h2>
@@ -194,8 +224,8 @@ export default function Buyers() {
           )}
         </ul>
 
-        <textarea className={styles.importantTextArea}
-          
+        <textarea ref={textAreaRef} className={styles.importantTextArea}
+          onChange={storeTextArea}
           name="postContent"
           defaultValue={buyerSelected.map((buyer) => buyer.key)}
           rows={4}
