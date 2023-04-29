@@ -224,7 +224,7 @@ export default function Buyers() {
                   id="phoney"
                   name="phone"
                   type="tel"
-                  placeholder="phone number"
+                  placeholder="Phone number"
                   required
                 />
               </label>
@@ -238,7 +238,7 @@ export default function Buyers() {
                 </label>
               </div>
 
-              <button className={styles.btnImproved}>Submit</button>
+              <button className={styles.btnImproved}>Submit request</button>
             </form>
           </div>
         </div>
