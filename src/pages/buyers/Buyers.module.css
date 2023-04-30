@@ -128,7 +128,6 @@
   padding: 1rem;
   margin: 1rem 2rem 0 0;
   border-radius: 25px;
-  /* border-radius: 5px; */
   font-size: 1rem;
   background-color: var(--blue);
   color: var(--grey);
@@ -161,7 +160,7 @@
   padding-bottom: 0.45rem;
 }
 
-/*-------------input fields*/
+/*-------------input fields-DONE*/
 
 .label input {
   padding: 1rem 1.5rem;
