@@ -153,7 +153,9 @@ export default function Buyers() {
         <title>Find buyer | EDC</title>
       </Head>
       <div className="wrapper">
-        <h1 className={styles.headline}>Trying to fetch something</h1>
+        <h1 className={styles.headline}>
+          Create <span>your own</span> buyer list
+        </h1>
 
         <div className={styles.importantWrapper}>
           {/* HERE ARE THE CARDS OF THE POTENTIAL BUYERS */}

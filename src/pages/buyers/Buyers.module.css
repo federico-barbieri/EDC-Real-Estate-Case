@@ -6,13 +6,21 @@
   height: 20%;
 }
 
+/*headline*/
 .headline {
   font-size: 3.052rem;
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   text-align: center;
   font-weight: 400;
   margin-bottom: 0.5rem;
   line-height: 1.2;
+  padding-bottom: 2rem;
+  /* font-family: var(--font-serif); */
+}
+
+.headline span {
+  font-family: var(--font-serif);
+  color: var(--yellow);
 }
 
 .content {
