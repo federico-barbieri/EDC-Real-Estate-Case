@@ -56,6 +56,11 @@
   overflow-y: auto;
 }
 
+/*Hiding the scrollbar*/
+.keepingArticles::-webkit-scrollbar {
+  display: none;
+}
+
 .storedCards {
   border: 2px solid blue;
   display: flex;
