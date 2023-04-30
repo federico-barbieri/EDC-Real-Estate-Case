@@ -3,6 +3,8 @@
   text-align: left;
   /* width: 100%; */
   width: 80%;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   background-color: var(--white);
   padding: 1rem;
@@ -31,11 +33,20 @@
   font-weight: 700;
 }
 
+/*idk if this is the way*/
+/* .detailsWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-top: 1px solid var(--dusty-blue-light);
+} */
+
 .inputImproved {
-  width: 100%;
+  width: 70%;
   height: 3rem;
   padding: 1rem;
-  margin: 1rem 0rem 0 0;
+  /* margin: 1rem 0rem 0 0; */
+  margin: 1rem auto 0 auto;
   font-size: 1rem;
   border-radius: 25px;
   outline: var(--blue) 1px solid;
@@ -53,6 +64,5 @@
 
 /*
  width: 30%;
-  height: 3rem;
-  padding: 1rem;
-  margin: 2rem auto 0 auto;*/
+  margin: 2rem auto 0 auto;
+*/

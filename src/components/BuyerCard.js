@@ -21,6 +21,7 @@ export default function BuyerCard({
         <span className={coolCard.info}>Description: </span>
         {description}
       </h4>
+
       <p>Num of Adults: {adults}</p>
       <p>Num of children: {child}</p>
       <p>Max price is: {maxPrice}</p>
