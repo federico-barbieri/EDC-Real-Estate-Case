@@ -1,30 +1,54 @@
-.thankYou{
-    width: 80vw;
-    height: 50vh;
-    margin: 5rem auto;
-    background-color: var(--dusty-blue-lighter);
-    filter: drop-shadow(4px 4px 4px var(--blue) );
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
+.main {
+  background-color: var(--dusty-aqua-light);
 }
 
-
-.btn{
-    width: 30%;
-    height: 3rem;
-    padding: 1rem;
-    margin: 3rem auto 0 auto;
-    border-radius: 5px;
-    cursor: pointer;
+.thankYou {
+  width: 50vw;
+  height: 60vh;
+  margin: 5rem auto;
+  /* background-color: var(--dusty-blue-lighter); */
+  filter: drop-shadow(4px 4px 4px var(--dusty-blue-light));
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
 }
-    
-.btn:hover{
-    transition: 0.5s all ease-in;
-    color: white;
-    background-color: var(--dusty-blue-lighter);
-    border: 2px solid white;
+
+.thankYou h2 {
+  font-family: var(--font-serif);
+  font-size: 3.052rem;
+  margin: 0;
+}
+
+.thankYou h3 {
+  font-weight: 400;
+}
+
+.thankYou ul {
+  padding: 0;
+}
+
+.thankYou li {
+  margin: 0;
+  padding: 0.5rem 0rem;
+}
+
+/*Button*/
+.btn {
+  width: 30%;
+  height: 3rem;
+  padding: 1rem;
+  margin: 1rem auto 0 auto;
+  font-size: 0.889rem;
+  border-radius: 25px;
+  background-color: var(--aqua);
+  color: var(--white);
+  cursor: pointer;
+}
+
+.btn:hover {
+  transition: 0.2s all ease-in;
+  background: var(--hover);
 }
