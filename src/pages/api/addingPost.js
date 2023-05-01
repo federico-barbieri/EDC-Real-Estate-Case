@@ -22,7 +22,6 @@ export default async function handler(req, res){
             body: JSON.stringify(req.body),
         }
     ).then((res) => res.json());
-    console.log({response});
-    res.status(200).json({response})
-
+    console.log({res});
+    return res.status(200).json({response})
 }
