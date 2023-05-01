@@ -1,14 +1,23 @@
 import coolsies from "./FirstForm.module.css";
 import { useState } from "react";
+import { estateTypes } from "@/data/estateTypes";
+
 
 export default function FirstForm() {
   const [price, setPrice] = useState(null);
   const [zipCode, setZipCode] = useState(null);
   const [estate, setEstate] = useState(null);
+  const [size, setSize] = useState(null);
+
 
   /* STORE PRICE */
   function storePrice(e) {
     setPrice(e.target.value);
+  }
+
+  /* STORE SIZE */
+  function storeSize(e) {
+    setSize(e.target.value);
   }
 
   /* STORE ZIPCODE */
@@ -19,7 +28,7 @@ export default function FirstForm() {
   /* STORE TYPE OF ESTATE */
   function storeEstate(e) {
     //  setEstate(e.target.value)
-    setEstate(e.target.id);
+    setEstate(e.target.name);
     console.log(estate);
   }
 
@@ -39,6 +48,17 @@ export default function FirstForm() {
         </label>
 
         <label className={coolsies.label}>
+          <span>Size</span>
+          <input
+            onChange={storeSize}
+            id="sizy"
+            name="size"
+            placeholder="The size of the property in sq"
+            required
+          />
+        </label>
+
+        <label className={coolsies.label}>
           <span>Price</span>
           <input
             onChange={storePrice}
@@ -51,34 +71,13 @@ export default function FirstForm() {
 
         <label className={coolsies.label}>
           <span>Estate Type</span>
+          
           <select id="estaty" name="estateType">
-            <option onClick={storeEstate} id="1">
-              Villa
-            </option>
-            <option onClick={storeEstate} id="2">
-              Villalejlighed
-            </option>
-            <option onClick={storeEstate} id="3">
-              Rækkehus
-            </option>
-            <option onClick={storeEstate} id="4">
-              Ejerlejlighed
-            </option>
-            <option onClick={storeEstate} id="5">
-              Fritidshus
-            </option>
-            <option onClick={storeEstate} id="6">
-              Fritidsgrund
-            </option>
-            <option onClick={storeEstate} id="7">
-              Helårsgrund
-            </option>
-            <option onClick={storeEstate} id="8">
-              Andelsbolig
-            </option>
-            <option onClick={storeEstate} id="9">
-              Landejendom
-            </option>
+            
+            {estateTypes.map((el) => 
+            <option value={el.id} key={el.id}>{el.name}</option>
+            )}
+           
           </select>
         </label>
         <button className={coolsies.button}>Find buyers</button>

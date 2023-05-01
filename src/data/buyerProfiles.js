@@ -15,7 +15,7 @@ function toNearestHundredThousand(number) {
  * Generate a fake profile for a potential buyer.
  * Feel free to adjust this date to fit your needs.
  */
-export function generateBuyerProfile({ price = 5000000, size = 100 } = {}) {
+export function generateBuyerProfile({ price = 5000000, size = 100, estateType } = {}) {
   const today = new Date();
   const endDate = new Date();
   // Set the end date to 3 months from now.
@@ -41,7 +41,7 @@ export function generateBuyerProfile({ price = 5000000, size = 100 } = {}) {
     /** The type of estate the buyer is looking for. This is just the ID, so we can find the value in `estateTypes.js` */
     estateType:
       estateTypes[
-        faker.datatype.number({ min: 0, max: estateTypes.length - 1 })
+        estateType-1
       ].id,
     takeoverDate: faker.date
       .between(today, endDate)
@@ -79,7 +79,6 @@ export function generateBuyerProfile({ price = 5000000, size = 100 } = {}) {
  * Generate a fake list of buyer profiles for a given zip code
  * @param zipCode {number} Filter profiles based on the zipCode
  * @param price {number} Price in kr
- * @param estateType {number} id
  * @param size {number} Size in square meters
  * @param minResults? {number} Minimum number of profiles to generate
  * @param maxResults? {number} Maximum number of profiles to generate
@@ -87,7 +86,7 @@ export function generateBuyerProfile({ price = 5000000, size = 100 } = {}) {
  */
 export function generateBuyerProfiles({
   zipCode,
-  estateType = undefined,
+  estateType = 1,
   price = undefined,
   size = undefined,
   minResults = 1,
@@ -103,6 +102,6 @@ export function generateBuyerProfiles({
         max: maxResults,
       }),
     },
-    () => generateBuyerProfile({ price, size, zipCode, estateType })
+    () => generateBuyerProfile({ price, size, estateType })
   );
 }

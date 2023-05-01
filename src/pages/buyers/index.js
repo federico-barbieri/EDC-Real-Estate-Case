@@ -45,9 +45,10 @@ export default function Buyers() {
   }
 
   useEffect(() => {
-    const api = `api/find-buyers?zipCode=${query.zipCode}&price=${query.price}&estateType=${query.estateType}`;
+    const api = `api/find-buyers?zipCode=${query.zipCode}&price=${query.price}&estateType=${query.estateType}&size=${query.size}`;
 
-    console.timeLog(query.estateType)
+    console.log(query.estateType)
+
 
     let fetchRes = fetch(api);
     fetchRes
@@ -60,7 +61,7 @@ export default function Buyers() {
       });
 
     // if any of the elements in the following array change, useEffect will be activated again
-  }, [query.zipCode, query.estateType, query.price]);
+  }, [query.zipCode, query.estateType, query.price, query.size]);
 
 
   {
