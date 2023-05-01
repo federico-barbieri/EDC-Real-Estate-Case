@@ -51,7 +51,7 @@ export default function FirstForm() {
 
         <label className={coolsies.label}>
           <span>Estate Type</span>
-          <select id="estaty" name="estate">
+          <select id="estaty" name="estateType">
             <option onClick={storeEstate} id="1">
               Villa
             </option>

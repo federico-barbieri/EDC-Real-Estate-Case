@@ -79,6 +79,7 @@ export function generateBuyerProfile({ price = 5000000, size = 100 } = {}) {
  * Generate a fake list of buyer profiles for a given zip code
  * @param zipCode {number} Filter profiles based on the zipCode
  * @param price {number} Price in kr
+ * @param estateType {number} id
  * @param size {number} Size in square meters
  * @param minResults? {number} Minimum number of profiles to generate
  * @param maxResults? {number} Maximum number of profiles to generate
@@ -86,6 +87,7 @@ export function generateBuyerProfile({ price = 5000000, size = 100 } = {}) {
  */
 export function generateBuyerProfiles({
   zipCode,
+  estateType = undefined,
   price = undefined,
   size = undefined,
   minResults = 1,
@@ -101,6 +103,6 @@ export function generateBuyerProfiles({
         max: maxResults,
       }),
     },
-    () => generateBuyerProfile({ price, size })
+    () => generateBuyerProfile({ price, size, zipCode, estateType })
   );
 }

@@ -45,7 +45,9 @@ export default function Buyers() {
   }
 
   useEffect(() => {
-    const api = `api/find-buyers?zipCode=${query.zipCode}&price=${query.price}&estateType=${query.estate}`;
+    const api = `api/find-buyers?zipCode=${query.zipCode}&price=${query.price}&estateType=${query.estateType}`;
+
+    console.timeLog(query.estateType)
 
     let fetchRes = fetch(api);
     fetchRes
@@ -58,28 +60,8 @@ export default function Buyers() {
       });
 
     // if any of the elements in the following array change, useEffect will be activated again
-  }, [query.zipCode, query.estate, query.price]);
+  }, [query.zipCode, query.estateType, query.price]);
 
-  {
-    /*------------------ RETURN A CARD FOR EACH ELEMENT IN THE DATA WE GOT IN THE FETCHING ------------------*/
-  }
-
-  const users = potentialBuyers.map((data, key) => {
-    return (
-      <BuyerCard
-        key={key}
-        id={data.id}
-        title={`Potential Buyer N ${key}`}
-        description={data.description}
-        adults={data.adults}
-        child={data.children}
-        maxPrice={data.maxPrice}
-        minSize={data.minSize}
-        takeOver={data.takeoverDate}
-        youClickedMe={youClickedMe}
-      />
-    );
-  });
 
   {
     /*------------------ USESTATE TO STORE CARDS WE SPECIFICALLY SELECT FROM THE BATCH ------------------*/
@@ -97,6 +79,7 @@ export default function Buyers() {
   {
     /*------------------ WHEN WE SELECT A CARD, WE STORE ITS ID IN STATE ------------------*/
   }
+
 
   function youClickedMe({ id, title, myBtnRef }) {
     // disable the btn when you click it
@@ -156,6 +139,29 @@ export default function Buyers() {
     if (error) throw error;
     router.push("/thanks")
   };
+
+
+  {
+    /*------------------ RETURN A CARD FOR EACH ELEMENT IN THE DATA WE GOT IN THE FETCHING ------------------*/
+  }
+
+  const users = potentialBuyers.map((data, key) => {
+    return (
+      <BuyerCard
+        key={key}
+        id={data.id}
+        title={`Potential Buyer N ${key}`}
+        description={data.description}
+        adults={data.adults}
+        child={data.children}
+        maxPrice={data.maxPrice}
+        minSize={data.minSize}
+        takeOver={data.takeoverDate}
+        youClickedMe={youClickedMe}
+      />
+    );
+  });
+
 
   return (
     <>
