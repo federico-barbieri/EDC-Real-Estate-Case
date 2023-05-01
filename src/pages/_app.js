@@ -1,17 +1,17 @@
 import "@/styles/globals.css";
 import { Header } from "@/components/Header/Header";
-import DataProvider from "../contexts/DataContext"
+import { SellerProvider } from "../../context/sellerContext";
 
 
 export default function App({ Component, pageProps }) {
   return (
     <>
-    <DataProvider>
+    <SellerProvider>
       <Header />
       <main>
         <Component {...pageProps} />
       </main>
-      </DataProvider>
+      </SellerProvider>
     </>
   );
 }

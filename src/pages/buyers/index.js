@@ -4,261 +4,220 @@ import styles from "./Buyers.module.css";
 import { useState, useEffect, useRef } from "react";
 import BuyerCard from "@/components/BuyerCard";
 import supabase from "@/utils/supabaseClient";
-
+import { useContext } from "react";
+import { SellerContext, UpdateContext } from "../../../context/sellerContext";
 
 export default function Buyers() {
+  {
+    /*------------------ GRAB INFO YOU FILLED IN PREVIOUS FORM ------------------*/
+  }
+  const { query } = useRouter();
+  const router = useRouter();
 
+  {
+    /*------------------ USE STATE TO STORE POTENTIAL FAKE BUYERS ------------------*/
+  }
+  const [potentialBuyers, setPotentialBuyers] = useState([]);
 
-   // use router to grab the stuff you filled up in the first form
-   const { query } = useRouter();
+    /*------------------ ALL OF THIS IS OUR FORM IN THIS PAGE ------------------*/
 
-   // have a reference for the UL
+  const [name, setName] = useState(null);
+  const [mail, setMail] = useState(null);
+  const [phone, setPhone] = useState(null);
 
-   const myUlRef = useRef(null);
-
-   // have a reference for the TRY AGAIN BTN
-
-   const tryAgainBtnRef = useRef(null);
-
-
-   // use state to store card buyers as objects
-     const [potentialBuyers, setPotentialBuyers] = useState([]);
-
-     useEffect(() => {
-
-     // api based on information coming from the router
-      const api = `api/find-buyers?zipCode=${query.zipCode}&price=${query.price}&estateType=${query.estate}`;
-     
-      // API for get requests
-      let fetchRes = fetch(api);
-       // fetchRes is the promise to resolve it by using.then() method
-      fetchRes.then(res => res.json())
-      .then(buyers => {
-      setPotentialBuyers(buyers);
-        //storePotentialBuyer(buyers);
-        })
-        .catch(err=>{
-          console.log(err);
-        })
-
-        // this basically pays attention to these specific key words (queries)
-
-     }, [query.zipCode, query.estate, query.price, tryAgainBtnRef.current?.textContent] )
-
-     // for every potential buyer, create a Buyer Card, thanks
-
-     const users = potentialBuyers.map((data, key) => {
-      return (
-
-        <BuyerCard
-          key={key}
-          id={key}
-          title={`Potential Buyer N ${key}`}
-          description={data.description}
-          adults={data.adults}
-          child={data.children}
-          maxPrice={data.maxPrice}
-          minSize={data.minSize}
-          takeOver={data.takeoverDate}
-          youClickedMe={youClickedMe}
-        />
-      )
-
-     })   
-     
-     // store the cards the user selected
-     
-     const [buyerSelected, setBuyerSelected] = useState([])
-
-     
-
-     
-
-     // when you click on one of the card btns..
-     // it receives the id of the buyer, the title(description) and the 
-     // reference to the button so it can be disabled
-
-    function youClickedMe({id, title, myBtnRef}){
-
-
-    // disable the btn when you click it
-    myBtnRef.current.disabled = true;
-
-    // set BuyerSelected to the new chosen item + whatever was there before
-
-    setBuyerSelected(
-      [
-        {key: id, name: title, btnRef: myBtnRef},
-        ...buyerSelected, 
-      ]
-    );
-     }
-
-    
-     // you can delete a LI from the UL and the UL will rerender
-     // the function takes a name(description) and will
-     // filter through the state to see if there is an element with 
-     // that description. If it does, it removes it
-
-     function deleteLi(name){
-
-      // remove card from state
-       let helloIAmNewState = buyerSelected.filter(el => el.name !== name); 
-
-      // set new state
-      setBuyerSelected(helloIAmNewState)
-
-      // remove everything from the UL
-     // myUlRef.innerHTML = "";
-    
-     }
-
-     // NOW COMES THE MIGHTY FORM
-
-     const [name, setName] = useState(null);
-    const [mail, setMail] = useState(null);
-    const [phone, setPhone] = useState(null);
-    const [textArea, setTextArea] = useState(null);
-
-    /* STORE NAME */
-  function storeName(e){
+  /* STORE NAME */
+  function storeName(e) {
     setName(e.target.value);
   }
 
   /* STORE MAIL */
-  function storeMail(e){
-     setMail(e.target.value);
-    }
+  function storeMail(e) {
+    setMail(e.target.value);
+  }
 
-      /* STORE PHONE */
-  function storePhone(e){
+  /* STORE PHONE */
+  function storePhone(e) {
     setPhone(e.target.value);
   }
 
-     /* STORE TEXT AREA */
-     function storeTextArea(e){
-      setTextArea(e.target.defaultValue);
-      console.log(textArea);
-    }
-
-
-  function fetchingBtnWasClicked(ref){
-    ref.current.textContent = "Trying my best to re-fetchhhh"
-
+  {
+    /*------------------ USE EFFECT TO FETCH POTENTIAL FAKE BUYERS ------------------*/
   }
 
-  // grab form 
+  useEffect(() => {
+    const api = `api/find-buyers?zipCode=${query.zipCode}&price=${query.price}&estateType=${query.estate}`;
 
-  const almightyForm = useRef(null);
+    let fetchRes = fetch(api);
+    fetchRes
+      .then((res) => res.json())
+      .then((buyers) => {
+        setPotentialBuyers(buyers);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
-//  function submitted(e){
-//    e.preventDefault();
-//    const payload = {
-//      name: name,
-//      email: mail,
-//      phone: phone,
-//      interest: "messi",
-//    }
+    // if any of the elements in the following array change, useEffect will be activated again
+  }, [query.zipCode, query.estate, query.price]);
 
-//    fetch("api/addingPost", {
-//      method: "POST",
-//      headers: {
-//      "Content-Type": "application/json",
-//    },
-//    body: JSON.stringify(payload),
-//    }).then(res => res.json())
-//    .then(data => console.log(data))
-//
-//  }
+  {
+    /*------------------ RETURN A CARD FOR EACH ELEMENT IN THE DATA WE GOT IN THE FETCHING ------------------*/
+  }
 
-  // supabase realm
+  const users = potentialBuyers.map((data, key) => {
+    return (
+      <BuyerCard
+        key={key}
+        id={data.id}
+        title={`Potential Buyer N ${key}`}
+        description={data.description}
+        adults={data.adults}
+        child={data.children}
+        maxPrice={data.maxPrice}
+        minSize={data.minSize}
+        takeOver={data.takeoverDate}
+        youClickedMe={youClickedMe}
+      />
+    );
+  });
 
-  const textAreaRef = useRef(null);
+  {
+    /*------------------ USESTATE TO STORE CARDS WE SPECIFICALLY SELECT FROM THE BATCH ------------------*/
+  }
 
+  const [buyerSelected, setBuyerSelected] = useState([]);
 
-  const submitted = async () => {
-    const {data, error} = await supabase.from("houses").insert({
+  {
+    /*------------------ GLOBAL VARIABLE THAT WILL STORE THE SELECTED BATCH TO BE USED SOMEWHERE ELSE ------------------*/
+  }
+
+  const selectedBuyers = useContext(SellerContext);
+  const setSelectedBuyers = useContext(UpdateContext);
+
+  {
+    /*------------------ WHEN WE SELECT A CARD, WE STORE ITS ID IN STATE ------------------*/
+  }
+
+  function youClickedMe({ id, title, myBtnRef }) {
+    // disable the btn when you click it
+    myBtnRef.current.disabled = true;
+
+    setBuyerSelected([id, ...buyerSelected]);
+    //    [
+    //      {key: id, name: title, btnRef: myBtnRef},
+    //      ...buyerSelected,
+    //    ]
+    //  );
+
+    {
+      /*------------------ WITHIN THIS FUNCTION, WE ALSO SAVE THE ID GLOBALLY  ------------------*/
+    }
+
+    setSelectedBuyers([id, ...buyerSelected]);
+
+    //  setSelectedBuyers({id, });
+
+    // set BuyerSelected to the new chosen item + whatever was there before
+
+    // WHATS BELOW WORKED PERFECTTTLYYY
+
+    //  setBuyerSelected(
+    //    [
+    //      {key: id, name: title, btnRef: myBtnRef},
+    //      ...buyerSelected,
+    //    ]
+    //  );
+  }
+
+  {
+    /*------------------ DELETE A SELECTION FROM THE UL (NOT WORKING) ------------------*/
+  }
+
+  function deleteLi(buyer) {
+    // remove card from state
+    let helloIAmNewState = buyerSelected.filter((buyer) => buyer !== buyer);
+
+    // set new state
+    setBuyerSelected(helloIAmNewState);
+  }
+
+  {
+    /*------------------ SUPABASE MAGIC ------------------*/
+  }
+
+  const submitted = async (e) => {
+    e.preventDefault()
+    const { data, error } = await supabase.from("houses").insert({
       name: name,
       email: mail,
       phone: phone,
-      interest: textAreaRef.current.defaultValue,
+      interest: selectedBuyers,
     });
     if (error) throw error;
-    console.log(phone);
-    console.log(name);
-    console.log(mail);
-    console.log(textAreaRef.current.defaultValue);
+    router.push("/thanks")
+  };
 
-  }
-
-  
-      
-     
   return (
     <>
       <Head>
         <title>Find buyer | EDC</title>
       </Head>
       <div className="wrapper">
-        <h1 className={styles.headline}>Trying to fetch something</h1>
+        <h1 className={styles.headline}>Select potential buyers</h1>
 
-      <div className={styles.importantWrapper}>
-      {/* HERE ARE THE CARDS OF THE POTENTIAL BUYERS */}
+        <div className={styles.importantWrapper}>
+          {/*------------------ HERE ARE THE CARDS OF THE POTENTIAL BUYERS (LEFT) ------------------*/}
 
-        <div className={styles.keepingArticles}>
-          {users}
-          {potentialBuyers.length === 0 ? <p>No buyers for you</p> : null}
-        </div>
+          <div className={styles.keepingArticles}>
+            {users}
+            {potentialBuyers.length === 0 ? <p>Try again</p> : null}
+          </div>
 
-      {/* HERE IS WHERE MY FORM IS */}
+          {/*------------------ FORM (RIGHT) ------------------*/}
 
-      <div className={styles.storedCards}>
-        <form ref={almightyForm} className={styles.finalSelectionForm} action="/thanks" onSubmit={submitted} >
-        <ul className={styles.uly} ref={myUlRef}>
+          <div className={styles.storedCards}>
+            <form
+              className={styles.finalSelectionForm}
+              /* action="/thanks" */
+              onSubmit={submitted}
+            >
+              <ul className={styles.uly}>
+                <h2>Your selection will appear here</h2>
 
-          <h2>Your selection will appear here</h2>
-          
-          {buyerSelected.map((buyer) => (
-          <li className={styles.lily} onClick={() => deleteLi(buyer.name)} key={buyer.key}>{buyer.name}</li> 
-          ) 
-          )}
-        </ul>
+                {buyerSelected.map((buyer) => (
+                  <li
+                    className={styles.lily}
+                    onClick={() => deleteLi(buyer)}
+                    key={buyer}
+                  >
+                    Buyer Nº {buyer}
+                  </li>
+                ))}
+              </ul>
 
-        <textarea ref={textAreaRef} className={styles.importantTextArea}
-          onChange={storeTextArea}
-          name="postContent"
-          defaultValue={buyerSelected.map((buyer) => buyer.key)}
-          rows={4}
-          cols={40}
-          />
-       
-      <label className={styles.label}>
-              <span>NAME</span>
-              <input onChange={storeName} id="namy" name="name" required />
-      </label>
-      <label className={styles.label}>
-              <span>EMAIL</span>
-              <input onChange={storeMail} id="emaily" name="email" required />
-      </label>
-      <label className={styles.label}>
-              <span>PHONE</span>
-              <input onChange={storePhone} id="phoney" name="phone" required />
-      </label>
-      
-      <button    className={styles.btnImproved}>Submit</button>
+              <label className={styles.label}>
+                <span>NAME</span>
+                <input onChange={storeName} id="namy" name="name" required />
+              </label>
+              <label className={styles.label}>
+                <span>EMAIL</span>
+                <input onChange={storeMail} id="emaily" name="email" required />
+              </label>
+              <label className={styles.label}>
+                <span>PHONE</span>
+                <input
+                  onChange={storePhone}
+                  id="phoney"
+                  name="phone"
+                  required
+                />
+              </label>
 
-    </form>
-        
-          
-      
+              <button className={styles.btnImproved}>Submit</button>
+            </form>
+          </div>
         </div>
       </div>
-      
-
-      </div>
-    
     </>
-  
   );
 }
-

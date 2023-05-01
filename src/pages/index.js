@@ -3,6 +3,7 @@ import styles from "./Home.module.css";
 import { useRouter } from "next/router";
 import FirstForm from "@/components/FirstForm";
 import { Header } from "@/components/Header/Header";
+import Test from "@/components/Test";
 
 export default function Home() {
   return (
