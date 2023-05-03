@@ -39,7 +39,7 @@ function Dashboard() {
           </button>
         </div>
         <div className={dashboard.mainForm}>
-          <table className={dashboard.table} cellSpacing={0}>
+          <table className={dashboard.table}>
             <thead>
               <tr className={dashboard.titleRow}>
                 <th>ID</th>

@@ -32,47 +32,57 @@
   overflow: scroll; /* border: none; */
 }
 
+/*Button*/
 .btn {
-  width: 30%;
+  /* width: 30%;
   height: 3rem;
-  padding: 1rem;
-  margin: 3rem auto 0 auto;
-  border-radius: 5px;
+  padding: 1rem; */
+  padding: 1rem 5rem;
+  margin: 1rem auto 0 auto;
+  font-size: 0.889rem;
+  border-radius: 25px;
+  background: var(--blue);
+  color: var(--white);
   cursor: pointer;
 }
 
 .btn:hover {
-  transition: 0.5s all ease-in;
-  color: white;
-  background-color: var(--dusty-blue-lighter);
-  border: 2px solid white;
+  transition: 0.2s all ease-in;
+  background: var(--hover);
 }
 
 /*the grey area*/
 .titleRow {
   background-color: var(--dusty-aqua-light);
-  height: 3rem;
+  height: 3.5rem;
   text-align: center;
   font-size: 0.9rem;
-  border-spacing: 5px 5px;
-  border-bottom: 1px solid red;
 }
+
+/* .titleRow th {
+  border-right: 1px solid var(--dusty-blue-lighter);
+} */
 
 .table {
   position: sticky;
   top: 0;
   width: 30%;
   background-color: var(--white);
-  /*finally these guys are working...*/
   border-radius: 20px;
   border-collapse: separate;
   border-spacing: 0;
 }
 
+.table th {
+  border-bottom: 1px solid var(--dusty-aqua);
+  border-collapse: separate;
+  border-spacing: 5px 5px;
+}
+
 /*Person details*/
 .tableRow {
   border-bottom: 1px solid var(--dusty-blue-lighter);
-  padding: 0.5rem;
+  padding: 0.4rem 0.7rem;
   font-size: 0.889rem;
   line-height: 22px;
   text-align: left;
@@ -80,4 +90,5 @@
 
 .userRow:hover {
   background-color: var(--dusty-aqua-light);
+  transition: 0.2s all ease-in;
 }
