@@ -54,7 +54,7 @@ export default function FirstForm() {
               onChange={storeSize}
               id="sizy"
               name="size"
-              placeholder="The size of the property in sq"
+              placeholder="The size of the property in m²"
               required
             />
           </label>

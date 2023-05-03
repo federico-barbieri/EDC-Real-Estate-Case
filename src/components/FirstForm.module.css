@@ -19,9 +19,7 @@
   font-family: var(--font-sans);
   text-align: center;
   font-weight: 400;
-  /* padding-bottom: 1rem; */
   filter: drop-shadow(0px -5px 6px var(--dark-blue));
-
   line-height: 1.2;
   color: white;
 }
@@ -33,17 +31,16 @@
 .formality {
   /* width: 50rem; */
   /* height: 40rem; */
+  /* margin: 0 auto; */
   height: auto;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   align-items: center;
   justify-content: space-around;
-  /* margin: 0 auto; */
   padding: 1rem;
   border-radius: 20px;
   filter: drop-shadow(0px -5px 6px var(--dark-blue));
-  /* filter: drop-shadow(4px 4px 4px var(--dark-blue)); */
 }
 
 /*Zip code, price, estate type*/

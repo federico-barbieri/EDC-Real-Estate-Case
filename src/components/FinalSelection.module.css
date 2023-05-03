@@ -1,4 +1,6 @@
-.finalSelectionForm {
+/*these are not styling anything (?)*/
+
+/* .finalSelectionForm {
   padding: 1rem;
   text-align: left;
   width: 80%;
@@ -13,9 +15,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-}
+} */
 
-.btnImproved {
+/* .btnImproved {
   width: 50%;
   height: 3rem;
   padding: 1rem;
@@ -29,4 +31,4 @@
   color: white;
   background-color: var(--dusty-blue-lighter);
   border: 2px solid white;
-}
+} */
