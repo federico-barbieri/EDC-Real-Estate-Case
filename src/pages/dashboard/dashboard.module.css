@@ -16,11 +16,17 @@
   border: none;
 }
 
+/* TO DO:
+- need to fix the table so it doesnt hide :/
+- make it responsive?
+- what about the top area not sure yet what to do with that
+**/
+
 .mainForm {
   width: 80vw;
   height: 80vh;
   margin: 1rem auto;
-  background-color: pink;
+  background-color: pink; /*just for testing*/
   filter: drop-shadow(4px 4px 4px var(--dusty-blue-light));
   border-radius: 10px;
   display: flex;
@@ -29,7 +35,7 @@
   justify-content: flex-start;
   padding-left: 5rem;
   overflow-y: scroll;
-  overflow: scroll; /* border: none; */
+  overflow: scroll;
 }
 
 /*Button*/
