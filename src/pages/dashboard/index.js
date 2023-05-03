@@ -52,10 +52,11 @@ function Dashboard() {
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th>Interested in:</th>
+                <th>Interested in</th>
+                <th>Estate ID</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className={dashboard.tableBody}>
               {allData.map((person) => (
                 <tr key={person.id} className={dashboard.userRow}>
                   <td className={dashboard.tableRow}>{person.id}</td>
@@ -64,6 +65,8 @@ function Dashboard() {
                   <td className={dashboard.tableRow}>{person.email}</td>
                   <td className={dashboard.tableRow}>{person.phone}</td>
                   <td className={dashboard.tableRow}>{person.interest}</td>
+                  <td className={dashboard.tableRow}>{person.estate_id}</td>
+
                 </tr>
               ))}
             </tbody>
