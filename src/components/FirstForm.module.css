@@ -96,9 +96,6 @@
 
 /*BUTTON*/
 .button {
-  /* width: 20vw; */
-  /* padding: 1rem 5rem;
-  margin-top: 1rem; */
   padding: 1rem 6rem;
   margin: 1rem auto 0 auto;
   border-radius: 25px;
@@ -114,8 +111,25 @@
   background: var(--hover);
 }
 
-@media screen and (max-width: 750px) {
-  .header {
+@media (max-width: 760px) {
+  .headline {
     font-size: 3.157rem;
+    color: aqua;
+  }
+}
+
+@media (max-width: 500px) {
+  .wrapper {
+    height: 100vh;
+  }
+
+  .headline {
+    font-size: 2.441rem;
+    color: pink;
+  }
+
+  .formality input,
+  .formality select {
+    width: 300px;
   }
 }
