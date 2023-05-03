@@ -192,7 +192,7 @@ export default function Buyers() {
                     onClick={() => deleteLi(buyer)}
                     key={buyer}
                   >
-                    Buyer Nº {buyer}
+                    Buyer ID {buyer}
                   </li>
                 ))}
               </ul>

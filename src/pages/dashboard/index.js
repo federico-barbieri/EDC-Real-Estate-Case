@@ -39,6 +39,7 @@ function Dashboard() {
 
   return (
     <>
+    <div>
     <div className={dashboard.initialForm}>
     <h2>MAIN DASHBOARD</h2>
 
@@ -78,6 +79,7 @@ function Dashboard() {
   
 
     
+    </div>
     </div>
     </>
   )

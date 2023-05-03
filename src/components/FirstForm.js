@@ -35,7 +35,7 @@ export default function FirstForm() {
   return (
     <>
       <form className={coolsies.formality} action="/buyers" method="GET">
-        <h2>Form that WILL work</h2>
+        <h2>Fill out this form</h2>
         <label className={coolsies.label}>
           <span>Zip Code</span>
           <input
