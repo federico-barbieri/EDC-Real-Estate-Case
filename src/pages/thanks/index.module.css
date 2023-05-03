@@ -16,6 +16,26 @@
   padding: 1rem;
 }
 
+.success {
+  margin: 0 auto;
+  transform: scale(1);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.9);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.9);
+  }
+}
+
 .thankYou h2 {
   font-family: var(--font-serif);
   font-size: 3.052rem;
@@ -37,7 +57,8 @@
 
 /*Button*/
 .btn {
-  width: 30%;
+  /* width: 0%; */
+  width: 25vw;
   height: 3rem;
   padding: 1rem;
   margin: 1rem auto 0 auto;
