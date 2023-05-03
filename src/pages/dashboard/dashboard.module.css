@@ -25,9 +25,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 1rem;
-    overflow: hidden;
+    padding-left: 5rem;
+    
     overflow-y: scroll;
+    overflow: scroll;
 }
 
 .btn{
@@ -49,7 +50,7 @@
 .table{
     position: sticky;
     top: 0;
-    width: 100%;
+    width: 30%;
 }
 
 .tableRow{
