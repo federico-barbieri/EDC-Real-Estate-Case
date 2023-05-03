@@ -8,7 +8,6 @@ import Test from "@/components/Test";
 export default function Home() {
   return (
     <>
-    
       <Head>
         <title>Find buyer | EDC</title>
       </Head>
