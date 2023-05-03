@@ -3,8 +3,8 @@
 } */
 
 .thankYou {
-  width: 100%;
-  height: 60vh;
+  /* width: 100%; */
+  height: 55vh;
   margin: 5rem auto;
   background-color: var(--dusty-aqua-light);
   filter: drop-shadow(4px 4px 4px var(--dusty-blue-light));
@@ -16,6 +16,7 @@
   padding: 1rem;
 }
 
+/*SVG*/
 .success {
   margin: 0 auto;
   transform: scale(1);
@@ -36,6 +37,7 @@
   }
 }
 
+/*Paragraphs*/
 .thankYou h2 {
   font-family: var(--font-serif);
   font-size: 3.052rem;

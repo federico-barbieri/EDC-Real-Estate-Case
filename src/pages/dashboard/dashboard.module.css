@@ -28,10 +28,7 @@
 
 /*Button*/
 .btn {
-  /* width: 30%;
-  height: 3rem; */
   padding: 1rem 5rem;
-  /* margin: 1rem auto 0 auto; */
   font-size: 0.9rem;
   font-weight: 400;
   background: var(--aqua);
