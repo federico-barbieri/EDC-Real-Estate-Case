@@ -1,17 +1,18 @@
 /*h1 headline / needs to be responsive*/
 
-.headline {
+/* .headline {
   font-size: 3.052rem;
   font-family: var(--font-sans);
   text-align: center;
   font-weight: 400;
   margin-bottom: 0.5rem;
   line-height: 1.2;
-}
+  display: none;
+} */
 
-.headline span {
+/* .headline span {
   font-family: var(--font-serif);
-}
+} */
 
 /* p under header*/
 
@@ -22,6 +23,7 @@
   margin: auto;
   margin-bottom: 1rem;
   width: 55rem;
+  display: none;
 }
 
 .content :first-child {
@@ -48,11 +50,11 @@
   padding: 0.5rem;
 }
 
-.button {
+/* .button {
   padding: 0.5rem;
   background: var(--blue);
   color: var(--white);
 }
 .button:hover {
   background: var(--hover);
-}
+} */

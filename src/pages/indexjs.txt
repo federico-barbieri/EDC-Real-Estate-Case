@@ -11,8 +11,22 @@ export default function Home() {
       <Head>
         <title>Find buyer | EDC</title>
       </Head>
+      <div className="wrapper">
+        <h1 className={styles.headline}>
+          Find <span>a buyer</span> for your home
+        </h1>
+        <div className={styles.content}>
+          <p>
+            We know that selling or buying a home is a big decision. It can be a
+            challenge to get an overview of the demand in the market, and
+            perhaps you are not yet quite ready to contact one of our brokers.
+            We recommend that you start by taking a look at our buyer directory.
+            Here you can easily and simply get an overview of potential buyers.
+          </p>
+        </div>
 
-      <FirstForm className={styles.form} />
+        <FirstForm className={styles.form} />
+      </div>
     </>
   );
 }
