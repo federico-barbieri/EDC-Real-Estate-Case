@@ -8,7 +8,7 @@
 
 /*headline*/
 .headline {
-  font-size: 3.052rem;
+  font-size: 2.441rem;
   font-family: var(--font-sans);
   text-align: center;
   font-weight: 400;
@@ -46,7 +46,6 @@
   display: grid;
   /* grid-template-columns: 1fr 1fr; */
   grid-template-columns: 1fr 450px;
-  gap: 1rem;
 }
 
 .keepingArticles {
@@ -73,9 +72,10 @@
 
 .lily {
   cursor: pointer;
-  border-top: 1px solid var(--dusty-aqua);
+  border-bottom: 1px solid var(--dusty-aqua);
   padding: 0.1rem 0;
   list-style-type: none;
+  font-size: 0.937rem;
 }
 
 .lily:hover {
@@ -86,12 +86,24 @@
 .uly {
   overflow: scroll;
   overflow-x: hidden;
-  /* scrollbar-color: red orange;
-  scrollbar-width: thin; these does not work*/
   height: 30%;
   margin: 0 auto;
   width: 100%;
   text-align: left;
+}
+
+.uly::-webkit-scrollbar {
+  width: 10px;
+  height: 12px;
+}
+
+.uly::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.uly::-webkit-scrollbar-thumb {
+  background-color: var(--dusty-aqua);
+  border-radius: 20px;
 }
 
 .uly h3 {
@@ -99,6 +111,8 @@
   text-align: center;
   margin: 0 auto;
   padding: 0.8rem 0;
+  border-bottom: 1px solid var(--blue);
+  margin-bottom: 0.8rem;
 }
 
 /* here comes the form */
@@ -184,7 +198,7 @@
   display: flex;
   flex-direction: row;
   width: 350px;
-  font-size: 0.79rem;
+  font-size: 0.702rem;
 }
 
 .checkbox input[type="checkbox"] {
@@ -214,3 +228,14 @@
   background-position: center;
   color: var(--white);
 }
+
+/*RESPONSIVE*/
+
+/* @media screen and (max-width: 900px) {
+  .importantWrapper {
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+  }
+  /* //make contact form leaner */

@@ -151,8 +151,8 @@ export default function Buyers() {
         description={data.description}
         adults={data.adults}
         child={data.children}
-        maxPrice={data.maxPrice}
-        minSize={data.minSize}
+        maxPrice={`${data.maxPrice} DKK`}
+        minSize={`${data.minSize}  m²`}
         takeOver={data.takeoverDate}
         youClickedMe={youClickedMe}
       />
@@ -214,6 +214,15 @@ export default function Buyers() {
                   required
                 />
               </label>
+              <div className="terms">
+                <label className={styles.checkbox}>
+                  <input type="checkbox" name="terms" required />
+                  <span>
+                    Yes, please, EDC may contact me with offers and information
+                    related to the real estate market.
+                  </span>
+                </label>
+              </div>
 
               <button className={styles.btnImproved}>Submit</button>
             </form>
