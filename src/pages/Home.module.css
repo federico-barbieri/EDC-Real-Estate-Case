@@ -10,12 +10,6 @@
   display: none;
 } */
 
-/* .headline span {
-  font-family: var(--font-serif);
-} */
-
-/* p under header*/
-
 .content {
   padding: 1rem;
   background-color: var(--white);
@@ -49,12 +43,3 @@
 .form input {
   padding: 0.5rem;
 }
-
-/* .button {
-  padding: 0.5rem;
-  background: var(--blue);
-  color: var(--white);
-}
-.button:hover {
-  background: var(--hover);
-} */
