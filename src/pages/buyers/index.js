@@ -19,7 +19,7 @@ export default function Buyers() {
   }
   const [potentialBuyers, setPotentialBuyers] = useState([]);
 
-    /*------------------ ALL OF THIS IS OUR FORM IN THIS PAGE ------------------*/
+  /*------------------ ALL OF THIS IS OUR FORM IN THIS PAGE ------------------*/
 
   const [name, setName] = useState(null);
   const [mail, setMail] = useState(null);
@@ -47,8 +47,7 @@ export default function Buyers() {
   useEffect(() => {
     const api = `api/find-buyers?zipCode=${query.zipCode}&price=${query.price}&estateType=${query.estateType}&size=${query.size}`;
 
-    console.log(query.estateType)
-
+    console.log(query.estateType);
 
     let fetchRes = fetch(api);
     fetchRes
@@ -62,7 +61,6 @@ export default function Buyers() {
 
     // if any of the elements in the following array change, useEffect will be activated again
   }, [query.zipCode, query.estateType, query.price, query.size]);
-
 
   {
     /*------------------ USESTATE TO STORE CARDS WE SPECIFICALLY SELECT FROM THE BATCH ------------------*/
@@ -80,7 +78,6 @@ export default function Buyers() {
   {
     /*------------------ WHEN WE SELECT A CARD, WE STORE ITS ID IN STATE ------------------*/
   }
-
 
   function youClickedMe({ id, title, myBtnRef }) {
     // disable the btn when you click it
@@ -130,7 +127,7 @@ export default function Buyers() {
   }
 
   const submitted = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const { data, error } = await supabase.from("houses").insert({
       name: name,
       email: mail,
@@ -138,9 +135,8 @@ export default function Buyers() {
       interest: selectedBuyers,
     });
     if (error) throw error;
-    router.push("/thanks")
+    router.push("/thanks");
   };
-
 
   {
     /*------------------ RETURN A CARD FOR EACH ELEMENT IN THE DATA WE GOT IN THE FETCHING ------------------*/
@@ -155,14 +151,13 @@ export default function Buyers() {
         description={data.description}
         adults={data.adults}
         child={data.children}
-        maxPrice={data.maxPrice}
-        minSize={data.minSize}
+        maxPrice={`${data.maxPrice} DKK`}
+        minSize={`${data.minSize}  m²`}
         takeOver={data.takeoverDate}
         youClickedMe={youClickedMe}
       />
     );
   });
-
 
   return (
     <>
@@ -189,7 +184,7 @@ export default function Buyers() {
               onSubmit={submitted}
             >
               <ul className={styles.uly}>
-                <h2>Your selection will appear here</h2>
+                <h3>Your selection will appear here</h3>
 
                 {buyerSelected.map((buyer) => (
                   <li
@@ -219,6 +214,15 @@ export default function Buyers() {
                   required
                 />
               </label>
+              <div className="terms">
+                <label className={styles.checkbox}>
+                  <input type="checkbox" name="terms" required />
+                  <span>
+                    Yes, please, EDC may contact me with offers and information
+                    related to the real estate market.
+                  </span>
+                </label>
+              </div>
 
               <button className={styles.btnImproved}>Submit</button>
             </form>
