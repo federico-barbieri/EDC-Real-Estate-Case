@@ -115,11 +115,14 @@ export default function Buyers() {
   }
 
   function deleteLi(buyer) {
-    // remove card from state
-    let helloIAmNewState = buyerSelected.filter((buyer) => buyer !== buyer);
 
-    // set new state
-    setBuyerSelected(helloIAmNewState);
+    // store clicked buyer's id
+    let personally = buyer;
+
+    
+  
+    // remove id from new state
+    setBuyerSelected(buyerSelected.filter((el) => el !== personally));
   }
 
   {
