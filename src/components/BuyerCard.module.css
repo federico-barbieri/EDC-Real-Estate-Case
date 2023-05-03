@@ -9,7 +9,9 @@
   background-color: var(--white);
   padding: 1rem;
   border-radius: 10px;
-  filter: drop-shadow(4px 4px 4px var(--dusty-blue-lighter));
+  filter: drop-shadow(4px 4px 4px var(--dusty-blue-lighter)); 
+  filter: drop-shadow(4px 4px 4px var(--blue)); 
+
 }
 
 .article h2 {
@@ -60,4 +62,12 @@
   color: var(--white);
   background-color: var(--blue);
   outline: 2px solid transparent;
+}
+
+.inputImproved:disabled {
+  transition: 0.2s all ease-in;
+  color: var(--white);
+  background-color: var(--dark-grey);
+  outline: 2px solid transparent;
+  cursor:default;
 }

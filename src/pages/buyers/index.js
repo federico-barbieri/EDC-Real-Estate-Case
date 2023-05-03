@@ -167,7 +167,7 @@ export default function Buyers() {
       <Head>
         <title>Find buyer | EDC</title>
       </Head>
-      <div className="wrapper">
+      <div className={styles.wrapper}>
         <h1 className={styles.headline}>Select potential buyers</h1>
 
         <div className={styles.importantWrapper}>
