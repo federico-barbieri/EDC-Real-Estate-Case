@@ -5,7 +5,7 @@
   align-items: center;
   gap: 2rem;
   padding-left: 2rem;
-  margin: 1rem 0;
+  margin: 2rem 0;
 }
 
 /*TABLE view*/
@@ -13,18 +13,15 @@
   /* width: 80vw; */
   height: 80vh;
   margin: 1rem auto;
-  background-color: var(--dusty-aqua-light);
-  filter: drop-shadow(4px 4px 4px var(--dusty-blue-light));
+  background-color: var(--white);
+  /* filter: drop-shadow(4px 4px 4px var(--dusty-blue-light)); */
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: flex-start; */
-  /* padding-left: 5rem; */
   overflow-x: hidden;
   overflow-y: scroll;
   /* overflow: scroll; */
-  /* display: none; */
 }
 
 /*maybe use this with JS to show hidden table? or TOGGLE?*/
@@ -49,15 +46,21 @@
 
 /*the grey area*/
 .titleRow {
-  background-color: var(--dusty-blue-lighter);
+  background-color: var(--dusty-aqua-light);
   height: 3.5rem;
   text-align: center;
   font-size: 0.9rem;
+  border-top-right-radius: 20px;
 }
 
-/* .titleRow th {
+.table tr {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.table tr {
   border-right: 1px solid var(--dusty-blue-lighter);
-} */
+}
 
 .table {
   position: sticky;
@@ -103,4 +106,21 @@
   .btn {
     padding: 1rem 3rem;
   }
+
+  /* .table {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    margin: 0;
+  } */
+  /* 
+  .userRow {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border: none;
+    padding: 0;
+    margin: 0;
+  } */
 }
