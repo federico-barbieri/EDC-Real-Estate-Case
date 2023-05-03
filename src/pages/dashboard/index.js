@@ -35,7 +35,7 @@ function Dashboard() {
           <h2>MAIN DASHBOARD</h2>
 
           <button onClick={getDataBack} className={dashboard.btn}>
-            SEE DATA
+            SHOW DATA
           </button>
         </div>
         <div className={dashboard.mainForm}>
