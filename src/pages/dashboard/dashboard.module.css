@@ -1,41 +1,41 @@
+/*Main Dashboard + Button to display the data*/
+
 .initialForm {
   width: 80vw;
   height: 20vh;
   margin: 1rem auto 1rem auto;
-  background-color: var(--dusty-blue-lighter);
-  filter: drop-shadow(4px 4px 4px var(--blue));
+  /* background-color: var(--dusty-blue-lighter); */
+  /* filter: drop-shadow(4px 4px 4px var(--blue)); */
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  overflow: hidden;
-  overflow-y: scroll;
-  /*del*/
-  border: none;
+  /* overflow: hidden; */
+  /* overflow-y: scroll; */
 }
 
 /* TO DO:
 - need to fix the table so it doesnt hide :/
 - make it responsive?
-- what about the top area not sure yet what to do with that
 **/
 
 .mainForm {
-  width: 80vw;
+  /* width: 80vw; */
   height: 80vh;
   margin: 1rem auto;
-  background-color: pink; /*just for testing*/
+  background-color: var(--dusty-blue-lighter);
   filter: drop-shadow(4px 4px 4px var(--dusty-blue-light));
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  padding-left: 5rem;
+  /* justify-content: flex-start; */
+  /* padding-left: 5rem; */
+  overflow-x: hidden;
   overflow-y: scroll;
-  overflow: scroll;
+  /* overflow: scroll; */
 }
 
 /*Button*/
@@ -47,7 +47,7 @@
   margin: 1rem auto 0 auto;
   font-size: 0.889rem;
   border-radius: 25px;
-  background: var(--blue);
+  background: var(--aqua);
   color: var(--white);
   cursor: pointer;
 }
