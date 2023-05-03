@@ -17,7 +17,7 @@
   --yellow: #fec315; /* Accent color; */
   --white: #fff;
   --black: #000;
-  --hotpink:hotpink;
+  --hotpink: hotpink;
 
   /* Fonts */
   --font-sans: "Lato", sans-serif;
@@ -45,8 +45,8 @@ body {
 }
 
 .wrapper {
-/*  max-width: 800px; */
-    max-width: 90vw;
+  /*  max-width: 800px; */
+  max-width: 90vw;
   padding: 0 1rem;
   margin: 0 auto;
 }

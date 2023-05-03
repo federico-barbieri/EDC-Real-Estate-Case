@@ -1,63 +1,83 @@
-.initialForm{
-    width: 80vw;
-    height: 20vh;
-    margin: 1rem auto 1rem auto;
-    background-color: var(--dusty-blue-lighter);
-    filter: drop-shadow(4px 4px 4px var(--blue) );
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    overflow: hidden;
-    overflow-y: scroll;
+.initialForm {
+  width: 80vw;
+  height: 20vh;
+  margin: 1rem auto 1rem auto;
+  background-color: var(--dusty-blue-lighter);
+  filter: drop-shadow(4px 4px 4px var(--blue));
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow: hidden;
+  overflow-y: scroll;
+  /*del*/
+  border: none;
 }
 
-.mainForm{
-    width: 80vw;
-    height: 80vh;
-    margin: 1rem auto;
-    background-color: var(--dusty-blue-lighter);
-    filter: drop-shadow(4px 4px 4px var(--blue) );
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding-left: 5rem;
-    
-    overflow-y: scroll;
-    overflow: scroll;
+.mainForm {
+  width: 80vw;
+  height: 80vh;
+  margin: 1rem auto;
+  background-color: pink;
+  filter: drop-shadow(4px 4px 4px var(--dusty-blue-light));
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 5rem;
+  overflow-y: scroll;
+  overflow: scroll; /* border: none; */
 }
 
-.btn{
-    width: 30%;
-    height: 3rem;
-    padding: 1rem;
-    margin: 3rem auto 0 auto;
-    border-radius: 5px;
-    cursor: pointer;
-}
-    
-.btn:hover{
-    transition: 0.5s all ease-in;
-    color: white;
-    background-color: var(--dusty-blue-lighter);
-    border: 2px solid white;
+.btn {
+  width: 30%;
+  height: 3rem;
+  padding: 1rem;
+  margin: 3rem auto 0 auto;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.table{
-    position: sticky;
-    top: 0;
-    width: 30%;
+.btn:hover {
+  transition: 0.5s all ease-in;
+  color: white;
+  background-color: var(--dusty-blue-lighter);
+  border: 2px solid white;
 }
 
-.tableRow{
-    border: 1px solid white;
-    padding: 0.5rem;
+/*the grey area*/
+.titleRow {
+  background-color: var(--dusty-aqua-light);
+  height: 3rem;
+  text-align: center;
+  font-size: 0.9rem;
+  border-spacing: 5px 5px;
+  border-bottom: 1px solid red;
 }
 
-.titleRow{
-    height: 3rem;
+.table {
+  position: sticky;
+  top: 0;
+  width: 30%;
+  background-color: var(--white);
+  /*finally these guys are working...*/
+  border-radius: 20px;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/*Person details*/
+.tableRow {
+  border-bottom: 1px solid var(--dusty-blue-lighter);
+  padding: 0.5rem;
+  font-size: 0.889rem;
+  line-height: 22px;
+  text-align: left;
+}
+
+.userRow:hover {
+  background-color: var(--dusty-aqua-light);
 }
