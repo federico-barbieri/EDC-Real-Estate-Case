@@ -11,6 +11,7 @@ function ThankYou() {
 
   return (
     <>
+    <div className={thanks.bigDiv}>
       <form className={thanks.thankYou} action="/dashboard" method="GET">
         <Image
           className={thanks.success}
@@ -25,6 +26,7 @@ function ThankYou() {
 
         <button className={thanks.btn}>TAKE ME TO DASHBOARD</button>
       </form>
+      </div>
     </>
   );
 }

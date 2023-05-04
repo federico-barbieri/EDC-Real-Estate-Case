@@ -6,6 +6,7 @@ import BuyerCard from "@/components/BuyerCard";
 import supabase from "@/utils/supabaseClient";
 import { useContext } from "react";
 import { SellerContext, UpdateContext } from "../../../context/sellerContext";
+import { estateTypes } from "@/data/estateTypes";
 
 export default function Buyers() {
   {
@@ -13,6 +14,7 @@ export default function Buyers() {
   }
   const { query } = useRouter();
   const router = useRouter();
+
 
   {
     /*------------------ USE STATE TO STORE POTENTIAL FAKE BUYERS ------------------*/
@@ -136,6 +138,7 @@ export default function Buyers() {
       email: mail,
       phone: phone,
       interest: selectedBuyers,
+      estate_id: query.estateType,
     });
     if (error) throw error;
     router.push("/thanks");
@@ -167,7 +170,7 @@ export default function Buyers() {
       <Head>
         <title>Find buyer | EDC</title>
       </Head>
-      <div className="wrapper">
+      <div className={styles.wrapper}>
         <h1 className={styles.headline}>Select potential buyers</h1>
 
         <div className={styles.importantWrapper}>
