@@ -227,14 +227,10 @@
     overflow-y: auto;
   }
 
-  .storedCards {
-  }
-
   .finalSelectionForm {
     padding: 1rem;
     height: auto;
     margin: 0;
-    background-color: pink;
   }
 }
 
