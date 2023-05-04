@@ -1,4 +1,3 @@
-
 /*headline is in use*/
 .headline {
   font-size: 2.441rem;
@@ -9,7 +8,6 @@
   margin-bottom: 0.5rem;
   line-height: 1.2;
   padding-bottom: 2rem;
-
 }
 
 .headline span {
@@ -30,11 +28,13 @@
   margin: 1rem auto 0 auto;
   border-radius: 10px;
 
-  background-image: url(../../assets/bgr1.jpg);
+  /*here?*/
+  /* background-image: url(../../assets/bgr1.jpg);
   background-size: cover;
   background-position: center;
   background-blend-mode: normal;
-  background-color: var(--dusty-blue-lighter);
+  background-color: var(--dusty-blue-lighter); */
+  background-color: var(--dusty-aqua-light);
 }
 
 .keepingArticles {
@@ -117,10 +117,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
- /* filter: drop-shadow(4px 4px 4px var(--dusty-blue-light)); */
- filter: drop-shadow(4px 4px 4px var(--blue)); 
- margin-top: 5rem;
-
+  /* filter: drop-shadow(4px 4px 4px var(--dusty-blue-light)); */
+  filter: drop-shadow(4px 4px 4px var(--blue));
+  margin-top: 5rem;
 }
 
 /*Contact form buttons- Only  here*/
