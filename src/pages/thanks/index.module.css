@@ -2,9 +2,10 @@
   background-color: var(--dusty-aqua-light);
 } */
 
-.bigDiv{
+.bigDiv {
   width: 100vw;
   height: 90vh;
+  /*here?*/
   background-image: url(../../assets/bgr1.jpg);
   background-size: cover;
   background-position: center;
@@ -17,7 +18,7 @@
 }
 
 .thankYou {
-  width: 50%; 
+  width: 50%;
   height: 50vh;
   background-color: var(--dusty-aqua-light);
   filter: drop-shadow(4px 4px 4px var(--dusty-blue-lighter));
