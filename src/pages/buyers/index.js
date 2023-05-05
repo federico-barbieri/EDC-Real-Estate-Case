@@ -81,16 +81,12 @@ export default function Buyers() {
     /*------------------ WHEN WE SELECT A CARD, WE STORE ITS ID IN STATE ------------------*/
   }
 
-  function youClickedMe({ id, title, myBtnRef }) {
+  function youClickedMe({ id, myBtnRef }) {
     // disable the btn when you click it
     myBtnRef.current.disabled = true;
 
     setBuyerSelected([id, ...buyerSelected]);
-    //    [
-    //      {key: id, name: title, btnRef: myBtnRef},
-    //      ...buyerSelected,
-    //    ]
-    //  );
+  
 
     {
       /*------------------ WITHIN THIS FUNCTION, WE ALSO SAVE THE ID GLOBALLY  ------------------*/
@@ -98,18 +94,6 @@ export default function Buyers() {
 
     setSelectedBuyers([id, ...buyerSelected]);
 
-    //  setSelectedBuyers({id, });
-
-    // set BuyerSelected to the new chosen item + whatever was there before
-
-    // WHATS BELOW WORKED PERFECTTTLYYY
-
-    //  setBuyerSelected(
-    //    [
-    //      {key: id, name: title, btnRef: myBtnRef},
-    //      ...buyerSelected,
-    //    ]
-    //  );
   }
 
   {

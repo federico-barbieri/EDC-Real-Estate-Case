@@ -1,8 +1,8 @@
 
 
-#introduction 
+# Introduction 
 
-The flow begins with a form(<firstForm />) that sellers can fill out with the zipcode, size of the property, 
+The flow begins with a form that sellers can fill out with the zipcode, size of the property, 
 the price they want for it, and the type of estate it is.
 
 Once they fill it out, they are redirected to a new page(/buyers) where they will see a list
@@ -18,11 +18,11 @@ thank you message.
 Finally, there is a button that redirects the hypothetical EDC employee to a dashboard(/dashboard),
 where they can see the latest information submitted to the database.
 
-#how it works
+# how it works
 
 But how does this work?
 
-The first page contains a component called <FirstForm />, 
+The first page contains a component called FirstForm , 
 with a few required inputs to understand what the seller has to offer.
 
 The second page, called /buyers, uses Next js's router to make the queries
@@ -42,8 +42,11 @@ Parallel to this, we're storing this information with useContext, so it's availa
 # sending data to the DB
 
 When the user submits the form, two things need to happen happen:
+
 1. an async function will insert the data to our table on Supabase.
-and 2. we need to go the next page.
+
+2. we need to go the next page.
+
 By using next js's router, we can prevent data race by pushing us to the following page called /thanks
 after the insertion happened.
 
@@ -52,8 +55,9 @@ after the insertion happened.
 This page is quite straightforward. Both an animation and a thank you message will kindly let you know
 we have received your data.
 
-#Dashboard
-In the dashboard, the "See Data" btn will send a fetch request to Supabase to obtain the different pieces
+# Dashboard
+
+In the dashboard, the "SEE LATEST DATA" button will send a fetch request to Supabase to obtain the different pieces
 of information that we inserted in the previous steps. 
 
 We store that data as state and then proceed to map through it to create the body of the table, where each

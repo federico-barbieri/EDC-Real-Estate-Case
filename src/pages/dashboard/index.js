@@ -15,22 +15,12 @@ function Dashboard() {
   const getDataBack = async () => {
     let { data: houses, error } = await supabase.from("houses").select("*");
 
-    // try{
-    //   let {data: houses, error} = await supabase
-    //   .from("houses")
-    //   .select("name");
-
     if (error) throw error;
-    console.log("data:", houses);
 
     setallData(houses);
 
     rowTitle.current.style.opacity = "1";
 
-
-    //  } catch (error) {
-    //    console.log("error:", error)
-    //  }
   };
 
   return (
@@ -56,6 +46,8 @@ function Dashboard() {
                 <th>Estate ID</th>
               </tr>
             </thead>
+
+
             <tbody className={dashboard.tableBody}>
               {allData.map((person) => (
                 <tr key={person.id} className={dashboard.userRow}>
@@ -70,6 +62,8 @@ function Dashboard() {
                 </tr>
               ))}
             </tbody>
+
+            
           </table>
         </div>
       </div>
