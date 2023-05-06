@@ -134,7 +134,9 @@ export default function Buyers() {
 
   const users = potentialBuyers.map((data, key) => {
     return (
+      
       <BuyerCard
+        className={styles.buyerCard}
         key={key}
         id={data.id}
         title={`Potential Buyer N ${key}`}
@@ -146,6 +148,7 @@ export default function Buyers() {
         takeOver={data.takeoverDate}
         youClickedMe={youClickedMe}
       />
+      
     );
   });
 
