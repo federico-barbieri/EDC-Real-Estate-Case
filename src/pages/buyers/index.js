@@ -136,7 +136,7 @@ export default function Buyers() {
     return (
       
       <BuyerCard
-        className={styles.buyerCard}
+        className={coolCard.buyerCard}
         key={key}
         id={data.id}
         title={`Potential Buyer N ${key}`}
