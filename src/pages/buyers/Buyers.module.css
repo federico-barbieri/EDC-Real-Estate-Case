@@ -222,21 +222,26 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0;
+    margin: 0 auto;
     height: 100vh;
     overflow-y: hidden;
+    width: 95%;
   }
+
 
   .keepingArticles {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
     gap: 2rem;
     overflow-x: auto;
-    overflow-y: hidden;
-    width: 95vw;
+    overflow-y: auto;
+    width: 90vw;
+    height: auto;
+    margin: 0 auto 2rem auto;
   }
+
 
 
 

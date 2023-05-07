@@ -136,7 +136,7 @@ export default function Buyers() {
     return (
       
       <BuyerCard
-        className={coolCard.buyerCard}
+        className={styles.buyerCard}
         key={key}
         id={data.id}
         title={`Potential Buyer N ${key}`}
@@ -165,7 +165,7 @@ export default function Buyers() {
 
           <div className={styles.keepingArticles}>
             {users}
-            {potentialBuyers.length === 0 ? <p>Try again</p> : null}
+            {potentialBuyers.length === 0 ? <p>Please refresh the page</p> : null}
           </div>
 
           {/*------------------ FORM (RIGHT) ------------------*/}
