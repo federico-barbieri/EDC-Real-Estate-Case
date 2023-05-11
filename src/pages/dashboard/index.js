@@ -30,7 +30,7 @@ function Dashboard() {
           <h2>DASHBOARD</h2>
 
           <button onClick={getDataBack} className={dashboard.btn}>
-            SHOW LATEST DATA
+            SHOW LATEST INSERTS
           </button>
         </div>
         <div className={dashboard.mainForm}>
