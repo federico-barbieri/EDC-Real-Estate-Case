@@ -165,7 +165,7 @@ export default function Buyers() {
 
           <div className={styles.keepingArticles}>
             {users}
-            {potentialBuyers.length === 0 ? <p>Please refresh the page</p> : null}
+            {potentialBuyers.length === 0 ? <button type="button">Please refresh the page</button> : null}
           </div>
 
           {/*------------------ FORM (RIGHT) ------------------*/}
